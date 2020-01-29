@@ -1,1 +1,3 @@
-This repo is a place for each team to document their weekly roadmaps as well as higher level longer-term team roadmaps.
+#OpenMined Roadmap
+
+This repository documents the current development roadmap for the OpenMined community, organized by development team and use case.
