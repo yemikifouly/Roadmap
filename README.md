@@ -40,7 +40,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Enterprise Use-Case 1:** Cross-Organization Model Evaluation
 
-    - Dev Teams: PyGrid Team, Security and Identity Team
+    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), Security and Identity Team
 
     - Funding Partners: TBD - Apply Here
 
@@ -52,7 +52,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Enterprise Use-Case 2:** Cross-Organization Federated Learning
 
-    - Dev Teams: PyGrid Team, Security and Identity Team, Tensorflow Team
+    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), Security and Identity Team, Tensorflow Team
 
     - Funding Partner: TBD - Apply Here
 
@@ -67,7 +67,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Smartphone Use-Case 1:** Federated Learning with Secure Aggregation across Web & Mobile
 
-    - Dev Teams: Web and Mobile Team, PyGrid Team
+    - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
     - Funding Partners: PyTorch ($250K)
 
@@ -82,7 +82,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Smartphone Use-Case 2:** Consumer-Selected Third-party On-Device ML
 
-    - Dev Teams: Web and Mobile Team, PyGrid Team
+    - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
     - Funding Partners: TBD
 
@@ -97,7 +97,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Smartphone Use-Case 3:** [Encrypted MLaaS (continuation of 2019 RAAIS grant)](https://blog.openmined.org/raais/)
     
-    - Dev Teams: Web and Mobile Team, PyGrid Team
+    - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
     - Funding Partners: The RAAIS Foundation
 
@@ -108,7 +108,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Open Research Use Case 1:** Open Model Hosting Platform
 
-    - Dev Teams: PyGrid Team, Tensorflow Team, Security and Identity Team
+    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), Tensorflow Team, Security and Identity Team
 
     - Funding Partners: TBD
 
@@ -121,7 +121,7 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
     
 - **Open Research Use Case 2:** Scalable, Debuggable Compute Use Case
 
-    - Dev Teams: PyGrid Team, Security and Identity Team
+    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), Security and Identity Team
 
     - Funding Partners: TBD
 
