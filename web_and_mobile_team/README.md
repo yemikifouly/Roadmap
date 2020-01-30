@@ -1,13 +1,13 @@
 ## Introduction
 *Last modified: January 30th, 2020*
 
-To my knowledge, this will be the first open-source system for private federated learning on server, web, and mobile anywhere on the planet. Our target platforms will include worker libraries written for servers (Python), web browsers (Javascript), Android devices (Kotlin), and iOS devices (Swift). We will do this by allowing for PySyft “plans” to be executed by a remote worker other than PySyft itself.
+To my knowledge, this will be the first open-source system for private federated learning on server, web, and mobile anywhere on the planet. Our target platforms will include worker libraries written for servers (Python), web browsers (Javascript), Android devices (Kotlin), and iOS devices (Swift). We will do this by allowing for PySyft "plans" to be executed by a remote worker other than PySyft itself.
 
 For the web, we must run TensorFlow.js as our deep learning framework. However, in order to run PyTorch plans in TensorFlow.js, we must first serialize the operations as a list, and then convert each operation into the appropriate commands available in TensorFlow.js. This translation layer will be described in more detail below.
 
 Conversely, for Android and iOS, we have chosen to utilize PyTorch Mobile. PyTorch Mobile allows us to run plans for both training and inference of PyTorch models via a wrapper library (written in Java) for Android and using LibTorch (PyTorch’s internal C++ library) for iOS. There is not currently a finished Objective-C or Swift wrapper that has been released by the PyTorch team. It’s worth noting that for the mobile workers, plans will need to be converted into TorchScript in order to be executed - the Javascript worker does not have this concern.
 
-In addition to “plans” that represent a batch of operations to be executed on a single worker, PySyft introduces the concept of a “protocol” that represents a distributed computation graph with defined worker roles. A “protocol” deployed to workers should allow executing SMPC algorithms such as those necessary for secure aggregation. Secure aggregation will require workers, or a subset of workers, to communicate directly - this can be accomplished by using WebRTC to establish a peer-to-peer data channel between workers. This allows for an added layer of protection to the workers that is separate from differential privacy which is applied as part of the eventual model update process on PyGrid.
+In addition to "plans" that represent a batch of operations to be executed on a single worker, PySyft introduces the concept of a "protocol" that represents a distributed computation graph with defined worker roles. A "protocol" deployed to workers should allow executing SMPC algorithms such as those necessary for secure aggregation. Secure aggregation will require workers, or a subset of workers, to communicate directly - this can be accomplished by using WebRTC to establish a peer-to-peer data channel between workers. This allows for an added layer of protection to the workers that is separate from differential privacy which is applied as part of the eventual model update process on PyGrid.
 
 ***Patrick Cason**<br />
 Web and Mobile Team Lead*
@@ -53,7 +53,7 @@ A developer designs their FL model using PyTorch in PySyft. This process involve
 
 The training plan will be the function that is inevitably run by a worker, taking the model and a batch of training data as input. The plan’s logic includes forward and backward propagation, as well as the weight update step.
 
-The averaging plan will instruct PyGrid on how to average models that are returned from the workers. This is also known as the “model update” plan whereby PyGrid receives trained models from workers, averages them, and then updates the global model before beginning another cycle.
+The averaging plan will instruct PyGrid on how to average models that are returned from the workers. This is also known as the "model update" plan whereby PyGrid receives trained models from workers, averages them, and then updates the global model before beginning another cycle.
 
 If a protocol is written, this will be executed by the worker libraries after they’ve finished executing the training plan. This will allow the workers to split off into groups to perform some sort of computation amongst themselves using WebRTC as a peer-to-peer data transfer layer. This allows for secure aggregation to be performed and later decrypted by PyGrid.
 
@@ -118,9 +118,9 @@ worker3_shares = worker3_model.share(worker1, worker2, worker3)
 
 new_model_shares = (worker1_shares + worker2_shares + worker3_shares) / 3
 
-new_model_shares['worker1'].declare_output()
-new_model_shares['worker2'].declare_output()
-new_model_shares['worker3'].declare_output()
+new_model_shares["worker1"].declare_output()
+new_model_shares["worker2"].declare_output()
+new_model_shares["worker3"].declare_output()
 secure_aggregation_protocol = sy.Protocol(worker1, worker2, worker3)
 ```
 
@@ -242,9 +242,9 @@ job.on('ready', ({ model, model_config, protocol }) => {
 
 One initial detail worth noting is that it’s assumed a worker could be running multiple jobs at the same time. A syft worker will need to intelligently observe each job as unique, handling the current training state and other various resources and tasks independent of other jobs. It’s worth noting that mobile phones will not likely have the compute resources necessary for running multiple jobs simultaneously. Because of this, we should allow for multiple concurrent jobs to be executed, but warn the developer at compile time that this is very bad practice for mobile.
 
-Upon first glance, the example above is performing a lot of “magic” behind the scenes. Once calling the `start()` method, the worker will notify PyGrid that it is available for training and send with it some other information related to the worker: ping, average download speed, average upload speed, and the format that the worker likes to receive a plan (list of operations or TorchScript). It’s worth noting that we want to send as little information to PyGrid as possible, only what is strictly required to ensure a reasonably paced training cycle. **Workers will not send information related to wifi connectivity, charging state, or asleep/awakeness of the user. It will be the responsibility of the client-side mobile developer to determine what criteria is appropriate for when model training should take place.**
+Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will notify PyGrid that it is available for training and send with it some other information related to the worker: ping, average download speed, average upload speed, and the format that the worker likes to receive a plan (list of operations or TorchScript). It’s worth noting that we want to send as little information to PyGrid as possible, only what is strictly required to ensure a reasonably paced training cycle. **Workers will not send information related to wifi connectivity, charging state, or asleep/awakeness of the user. It will be the responsibility of the client-side mobile developer to determine what criteria is appropriate for when model training should take place.**
 
-It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into “sleep mode” until that time. This will disable the socket connection and start a timer.
+It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into "sleep mode" until that time. This will disable the socket connection and start a timer.
 
 When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, training plan, and model configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `executeTrainingPlan()`.
 
@@ -255,9 +255,9 @@ You can expect the code sample above to change slightly between the various work
 ### 5. Aggregate
 At this point, a model has either been trained and reported back to PyGrid or shares of a securely aggregated (and trained) model have been reported back to PyGrid. If PyGrid receives multiple shares of a model (as it would in the presence of a protocol), then it will need to combine the shares and then decrypt the result. If the report is sent within the time limit of the cycle (set in the federated learning configuration above), it will be accepted. Otherwise, it will be discarded. The worker will not be notified in either situation.
 
-At this point, PyGrid needs to update the global model with the new weights. Google does this by using an algorithm they appropriately call “Federated Averaging”. While it’s perfectly appropriate to use their averaging algorithm, we opted to allow the developer to define their own in the form of a PySyft plan, aptly called the “averaging plan”. This function will go through each of the reported models and average them against the global model, which then persists as the new global model for future cycles.
+At this point, PyGrid needs to update the global model with the new weights. Google does this by using an algorithm they appropriately call "Federated Averaging". While it’s perfectly appropriate to use their averaging algorithm, we opted to allow the developer to define their own in the form of a PySyft plan, aptly called the "averaging plan". This function will go through each of the reported models and average them against the global model, which then persists as the new global model for future cycles.
 
-It’s important to note that this will actually create a new “checkpoint” of the model. If the developer originally uploaded a model to PyGrid of name “my-federated-model” with a version of “0.1.0”, then it would automatically create a checkpoint of “1”. For each checkpoint after that, the value will increment. It would be beneficial for PyGrid to also allow a developer to name their checkpoints something more memorable like “latest” or “stable” or “best-version-yet”.
+It’s important to note that this will actually create a new "checkpoint" of the model. If the developer originally uploaded a model to PyGrid of name "my-federated-model" with a version of "0.1.0", then it would automatically create a checkpoint of "1". For each checkpoint after that, the value will increment. It would be beneficial for PyGrid to also allow a developer to name their checkpoints something more memorable like "latest" or "stable" or "best-version-yet".
 
 ### 6. Inspect
 Depending on the federated learning configuration, the developer may opt to have multiple training cycles. In this case, a new cycle will begin at the determined interval. However, assuming we’ve finished all the cycles, the model will now be ready for inspection by the developer and may be used for inference, retrained, or whatever they desire. The developer may decide to pull a specific version of a model, or may optionally decide to even pull a specific checkpoint instead. The process of federated learning is now considered complete.
