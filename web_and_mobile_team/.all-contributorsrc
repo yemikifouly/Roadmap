@@ -1,14 +1,115 @@
 {
   "projectName": "Web and Mobile Team",
-  "projectOwner": "OpenMined",
+  "projectOwner": "cereallarceny",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
-    "CONTRIBUTORS.md"
+    "README.md"
   ],
   "imageSize": 100,
+  "contributorsPerLine": 6,
   "commit": false,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "cereallarceny",
+      "name": "Patrick Cason",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/1297930?v=4",
+      "profile": "https://www.patrickcason.com",
+      "contributions": [
+        "projectManagement",
+        "code",
+        "review",
+        "test",
+        "question",
+        "content",
+        "ideas"
+      ]
+    },
+    {
+      "login": "karlhigley",
+      "name": "Karl Higley",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/885295?v=4",
+      "profile": "https://www.linkedin.com/in/karlhigley/",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "vvmnnnkv",
+      "name": "Vova Manannikov",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12518480?v=4",
+      "profile": "https://www.linkedin.com/in/vova-manannikov",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "Nolski",
+      "name": "Mike Nolan",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2600677?v=4",
+      "profile": "http://nolski.rocks",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "Prtfw",
+      "name": "Madeleine Shang",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13193437?v=4",
+      "profile": "https://github.com/Prtfw",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "mjjimenez",
+      "name": "mjjimenez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4151269?v=4",
+      "profile": "https://github.com/mjjimenez",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "vkkhare",
+      "name": "varun khare",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/18126069?v=4",
+      "profile": "http://vkkhare.github.io",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    },
+    {
+      "login": "mccorby",
+      "name": "Jose A. Corbacho",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4661075?v=4",
+      "profile": "https://github.com/mccorby",
+      "contributions": [
+        "code",
+        "review",
+        "test",
+        "question"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
