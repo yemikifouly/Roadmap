@@ -1,5 +1,8 @@
+[View our current progress on Github](https://github.com/orgs/openmined/projects/13)
+
 ## Introduction
-*Last modified: January 30th, 2020*
+
+_Last modified: January 30th, 2020_
 
 To my knowledge, this will be the first open-source system for private federated learning on server, web, and mobile anywhere on the planet. Our target platforms will include worker libraries written for servers (Python), web browsers (Javascript), Android devices (Kotlin), and iOS devices (Swift). We will do this by allowing for PySyft "plans" to be executed by a remote worker other than PySyft itself.
 
@@ -9,8 +12,8 @@ Conversely, for Android and iOS, we have chosen to utilize PyTorch Mobile. PyTor
 
 In addition to "plans" that represent a batch of operations to be executed on a single worker, PySyft introduces the concept of a "protocol" that represents a distributed computation graph with defined worker roles. A "protocol" deployed to workers should allow executing SMPC algorithms such as those necessary for secure aggregation. Secure aggregation will require workers, or a subset of workers, to communicate directly - this can be accomplished by using WebRTC to establish a peer-to-peer data channel between workers. This allows for an added layer of protection to the workers that is separate from differential privacy which is applied as part of the eventual model update process on PyGrid.
 
-***Patrick Cason**<br />
-Web and Mobile Team Lead*
+**\*Patrick Cason**<br />
+Web and Mobile Team Lead\*
 
 ## Terminology
 
@@ -49,6 +52,7 @@ We will also use this section for defining each of the components of the OpenMin
 The OpenMined federated learning workflow is loosely inspired Google’s federated learning workflow, but we provide a bit more generalization since we don’t also control the operating system itself. Our workflow consists of the following steps:
 
 ### 1. Design
+
 A developer designs their FL model using PyTorch in PySyft. This process involves the creation of a model, training plan, averaging plan, and (optionally) a protocol.
 
 The training plan will be the function that is inevitably run by a worker, taking the model and a batch of training data as input. The plan’s logic includes forward and backward propagation, as well as the weight update step.
@@ -125,6 +129,7 @@ secure_aggregation_protocol = sy.Protocol(worker1, worker2, worker3)
 ```
 
 ### 2. Test
+
 At this point, a developer will test their code against VirtualWorkers in PySyft, allowing them to locally simulate the process of deploying their model to the edge. The developer will also want to define their initial model parameters (e.g. model name, version, hyperparameters, etc.) and federated learning configuration (e.g. the number of cycles, maximum number of workers, etc.).
 
 This process will create a network of VirtualWorkers in PySyft, send the training plan to each of them, execute the model on each of the VirtualWorkers, push the results back to PySyft, run the averaging plan to update the global model, and finally return the model back to the developer for inspection.
@@ -158,6 +163,7 @@ sy.test_federated_training(
 ```
 
 ### 3. Host
+
 Now that the model has been developed locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid gateway and send the model, training plan, averaging plan, optional protocol, and various configurations to be stored in PyGrid properly.
 
 ```py
@@ -182,6 +188,7 @@ pygrid.host_federated_training(
 ```
 
 ### 4. Execute
+
 Each worker is a library that may be integrated within the context of a web or mobile app. This integration will be relatively straight-forward, requiring no more than a few lines of code. The following is an example of how the syft.js Javascript worker might integrate into an application:
 
 ```js
@@ -253,6 +260,7 @@ Once the plan is fully trained, we must check if there is a protocol the worker 
 You can expect the code sample above to change slightly between the various worker libraries. It’s worth considering that the mobile workers are also plagued by different concerns like detecting when the user is awake or asleep, determining charge status, and being limited to execution time limits for background tasks to name a few. It will be up to the mobile libraries themselves to do the detection of this criteria (battery level, charging/not-charging, internet connection speed, and asleep/awake), and we will provide reasonable default levels. However, any of these criteria should be allowed to be overridden by the developer as per their specific use-case.
 
 ### 5. Aggregate
+
 At this point, a model has either been trained and reported back to PyGrid or shares of a securely aggregated (and trained) model have been reported back to PyGrid. If PyGrid receives multiple shares of a model (as it would in the presence of a protocol), then it will need to combine the shares and then decrypt the result. If the report is sent within the time limit of the cycle (set in the federated learning configuration above), it will be accepted. Otherwise, it will be discarded. The worker will not be notified in either situation.
 
 At this point, PyGrid needs to update the global model with the new weights. Google does this by using an algorithm they appropriately call "Federated Averaging". While it’s perfectly appropriate to use their averaging algorithm, we opted to allow the developer to define their own in the form of a PySyft plan, aptly called the "averaging plan". This function will go through each of the reported models and average them against the global model, which then persists as the new global model for future cycles.
@@ -260,6 +268,7 @@ At this point, PyGrid needs to update the global model with the new weights. Goo
 It’s important to note that this will actually create a new "checkpoint" of the model. If the developer originally uploaded a model to PyGrid of name "my-federated-model" with a version of "0.1.0", then it would automatically create a checkpoint of "1". For each checkpoint after that, the value will increment. It would be beneficial for PyGrid to also allow a developer to name their checkpoints something more memorable like "latest" or "stable" or "best-version-yet".
 
 ### 6. Inspect
+
 Depending on the federated learning configuration, the developer may opt to have multiple training cycles. In this case, a new cycle will begin at the determined interval. However, assuming we’ve finished all the cycles, the model will now be ready for inspection by the developer and may be used for inference, retrained, or whatever they desire. The developer may decide to pull a specific version of a model, or may optionally decide to even pull a specific checkpoint instead. The process of federated learning is now considered complete.
 
 ```py
