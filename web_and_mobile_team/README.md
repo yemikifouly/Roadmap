@@ -1,11 +1,10 @@
 # Web and Mobile Team Roadmap
 
-Welcome to the Web and Mobile Team's Roadmap! We're glad you're here! This repository contains our short term (weekly) and medium term (3-6 month) development plans. At the time of writing, our primary focus is the the [PyTorch sponsored project](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/) toward mobile and web based Federated Learning.
+Welcome to the Web and Mobile Team's Roadmap! This repository contains our short term (weekly) and medium term (3-6 month) development plans. At the time of writing, [our primary focus is the PyTorch sponsored project toward web and mobile based Federated Learning](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/).
 
 ## Team Members
 
-**Team Lead:** [Patrick Cason](https://github.com/cereallarceny =100x100)
-
+**Team Lead:**
 ![Patrick Cason](resources/patrick.png)
 
 - [Slack](https://app.slack.com/client/T6963A864/D6BHGRDN3/user_profile/U6966R9BJ)
@@ -14,9 +13,6 @@ Welcome to the Web and Mobile Team's Roadmap! We're glad you're here! This repos
 - OpenMined Email: patrick@openmined.org
 
 **Team Members:**
-
-
-
 
 ## Roadmap Organization
 

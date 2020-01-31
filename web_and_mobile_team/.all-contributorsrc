@@ -1,0 +1,14 @@
+{
+  "projectName": "Web and Mobile Team",
+  "projectOwner": "OpenMined",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "CONTRIBUTORS.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [],
+  "contributorsPerLine": 7
+}
