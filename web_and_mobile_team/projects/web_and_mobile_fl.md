@@ -283,5 +283,4 @@ pygrid = gr.WebsocketGridClient(
 pygrid.connect()
 
 trained_fl_model = pygrid.get_model(name="my-federated-model", version="0.1.0", checkpoint="latest")
-trained_fl_model.release_new_version("0.1.1")
 ```
