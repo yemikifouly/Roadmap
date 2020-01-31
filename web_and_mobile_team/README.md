@@ -4,7 +4,7 @@ Welcome to the Web and Mobile Team's Roadmap! We're glad you're here! This repos
 
 ## Team Members
 
-**Team Lead:** [Patrick Cason](https://github.com/cereallarceny)
+**Team Lead:** [Patrick Cason](https://github.com/cereallarceny =100x100)
 
 ![Patrick Cason](resources/patrick.png)
 
