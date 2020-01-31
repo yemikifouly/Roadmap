@@ -65,13 +65,18 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 ## Smartphone Platform Use Cases
 
-- **Smartphone Use-Case 1:** Federated Learning with Secure Aggregation across Web & Mobile
+- **Smartphone Use-Case 1:** [Federated Learning with Secure Aggregation across Web & Mobile](https://github.com/OpenMined/Roadmap/blob/master/web_and_mobile_team/projects/web_and_mobile_fl.md)
 
-    - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
+    - Lead Dev Team: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team)
+    - Supporting Dev Teams:
+        - [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
     - Funding Partners: PyTorch ($250K)
+        - [Initial Announcement](https://pytorch.org/blog/openmined-and-pytorch-launch-fellowship-funding-for-privacy-preserving-ml/)
+        - [Call for Contributors](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/)
+        - [Announce Contributors](https://blog.openmined.org/pytorch-grant-recipients/)
 
-    - Use Case Partner: TBD
+    - Use Case Partner: TBD - If you would like to be the first to deploy this system within your app (and have our help to do so), please email partnerships@openmined.org.
 
     - Educational Deliverables: 
 
