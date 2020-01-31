@@ -71,10 +71,11 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
     - Supporting Dev Teams:
         - [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
-    - Funding Partners: PyTorch ($250K)
-        - [Initial Announcement](https://pytorch.org/blog/openmined-and-pytorch-launch-fellowship-funding-for-privacy-preserving-ml/)
-        - [Call for Contributors](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/)
-        - [Announce Contributors](https://blog.openmined.org/pytorch-grant-recipients/)
+    - Funding Partners: 
+        - [PyTorch](https://pytorch.org/) ($250K across multiple use cases)
+            - [Initial Announcement](https://pytorch.org/blog/openmined-and-pytorch-launch-fellowship-funding-for-privacy-preserving-ml/)
+            - [Call for Contributors](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/)
+            - [Announce Contributors](https://blog.openmined.org/pytorch-grant-recipients/)
 
     - Use Case Partner: TBD - If you would like to be the first to deploy this system within your app (and have our help to do so), please email partnerships@openmined.org.
 
