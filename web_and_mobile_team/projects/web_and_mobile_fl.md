@@ -1,5 +1,3 @@
-[View our current progress on Github](https://github.com/orgs/openmined/projects/13)
-
 ## Introduction
 
 _Last modified: January 30th, 2020_
@@ -285,3 +283,86 @@ pygrid.connect()
 trained_fl_model = pygrid.get_model(name="my-federated-model", version="0.1.0", checkpoint="latest")
 trained_fl_model.release_new_version("0.1.1")
 ```
+
+## Projects
+
+There are many projects that we consider vital to achieving our MVP. [You may also view our current progress on Github](https://github.com/orgs/openmined/projects/13). The high-level projects we must complete are as follows:
+
+### PySyft
+
+- [Refactor Plans](https://github.com/OpenMined/PySyft/issues/2912)
+- [Refactor Protocols](https://github.com/OpenMined/PySyft/issues/2903)
+- [Refactor PyTorch tensor hooking](https://github.com/OpenMined/PySyft/issues/2991)
+- [Allow PySyft to package plan operations either as a list of individual commands or as TorchScript](https://github.com/OpenMined/PySyft/issues/2994)
+- [Add test federated training method to PySyft](https://github.com/OpenMined/PySyft/issues/2995)
+- [Implement changes in PySyft client for federated learning](https://github.com/OpenMined/PySyft/issues/2996)
+- _Optional_ - [Implement the command translation layer inside of PySyft which will allow for PySyft Tensorflow plans to be converted to PyTorch](https://github.com/OpenMined/PySyft/issues/2997)
+
+### PyGrid
+
+- Add WebRTC socket signaling support to PyGrid
+- Add plans and protocols to PyGrid
+- Add host federated training method to PyGrid
+- Add get model method to PyGrid
+- Allow PyGrid to serve plan operations as either a list of individual commands (syft.js) or as TorchScript (Android and iOS) depending on the requesting environment
+- Implement federated learning cycles in PyGrid
+- Add averaging plan and global model updating functionality to PyGrid
+- _Optional_ - Add a few predefined averaging plans (like “Federated Average”) to PyGrid
+- _Optional_ - Allow for periodic status updates of current FL cycles on PyGrid
+
+### syft-proto
+
+- Create Protobuf schemas from PySyft classes
+- Set up a CI pipeline and version release system in syft-proto with Github Actions
+
+### syft.js
+
+- Migrate syft.js to use Protobuf classes
+- Implement the command translation layer inside of syft.js
+- Implement split and stitch algorithm for data channels in syft.js
+- Add bandwidth and Internet connectivity test in syft.js
+- Scaffold basic proposed worker API in syft.js
+- Execute plans in syft.js
+- Execute protocols in syft.js
+- Allow for training state to be persisted to temporary storage in the event of a failure in syft.js
+
+### KotlinSyft
+
+- Create the basic structure of KotlinSyft
+- Implement WebRTC flow in Android
+- Implement Protobuf in Android
+- Set up deployment to Maven
+- Implement split and stitch algorithm for data channels in Android
+- Add support for background task scheduling in Android
+- Implement sleep/wake detection in Android
+- Add support for charge detection and wifi detection in Android
+- Add bandwidth and Internet connectivity test in Android
+- Scaffold basic proposed worker API in Android
+- Execute plans in Android
+- Execute protocols in Android
+- Allow for training state to be persisted to temporary storage in the event of a failure in Android
+
+### SwiftSyft
+
+- Create the basic structure of SwiftSyft
+- Implement WebRTC flow in iOS
+- Implement Protobuf in iOS
+- Set up deployment to Cocoapods
+- Implement split and stitch algorithm for data channels in iOS
+- Add support for background task scheduling in iOS
+- Implement sleep/wake detection in iOS
+- Add support for charge detection and wifi detection in iOS
+- Add bandwidth and Internet connectivity test in iOS
+- Scaffold basic proposed worker API in iOS
+- Execute plans in iOS
+- Execute protocols in iOS
+- Allow for training state to be persisted to temporary storage in the event of a failure in iOS
+
+### Threepio
+
+- Write a language-agnostic command translation layer that is tri-directional between PyTorch, TensorFlow, and TensorFlow.js
+
+### General
+
+- Work on multiple end-to-end demos utilizing all 3 Syft worker libraries
+- Develop end-to-end testing suite for all full system testing
