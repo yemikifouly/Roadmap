@@ -6,17 +6,17 @@ This repository documents the current roadmap for the OpenMined community, organ
 
 In line with this mission, this year we will seek to accomplish the folowing goal.
 
-**Primary 2020 Goal:** solve real privacy problems *in production* and lower the barrier-to-entry for others to do so through software and education.
+**Primary 2020 Goal:** solve real privacy problems _in production_ and lower the barrier-to-entry for others to do so through software and education.
 
-While it might seem a bit surprising for an un-incorporate entity to be pursuing production deployments and the development of open courseware, we feel that it is essential to pursue real-world deployments in the development of our software. Specifically, it's impossible to truly know whether we are writing the *right* software without actively seeking to use it to solve someone's problem. 
+While it might seem a bit surprising for an un-incorporate entity to be pursuing production deployments and the development of open courseware, we feel that it is essential to pursue real-world deployments in the development of our software. Specifically, it's impossible to truly know whether we are writing the _right_ software without actively seeking to use it to solve someone's problem.
 
 Furthermore, we feel that our ability to educate individuals on how to make the more privacy-preserving is only legitimate if we ourselves are involved in actually deploying real-world use cases.
 
 Thus, in 2020 we will seek to put our software into production and, leveraging our knowledge through experience, teach others to do so. Thus, we have two key activities for the year:
 
-1) **Production Deployments:** we have several production use cases we will deploy within real-world enterprises, smartphone applications, and cloud platforms around the world. Pursuing these deployments will be the primary motivation behind the development tasks we pursue across development teams. 
+1. **Production Deployments:** we have several production use cases we will deploy within real-world enterprises, smartphone applications, and cloud platforms around the world. Pursuing these deployments will be the primary motivation behind the development tasks we pursue across development teams.
 
-2) **Education:** In addition to creating blogs, tutorials, youtube videos, and documentation throughout the year, we will finish the year by creating a course (as a followup to our previous [Udacity Course](http://udacity.com/private-ai)) which will teach students how to deploy the same use cases we have deployed throughout the year. Additionally, this course will prepare students for an examination which will certify their ability to process private data.
+2. **Education:** In addition to creating blogs, tutorials, youtube videos, and documentation throughout the year, we will finish the year by creating a course (as a followup to our previous [Udacity Course](http://udacity.com/private-ai)) which will teach students how to deploy the same use cases we have deployed throughout the year. Additionally, this course will prepare students for an examination which will certify their ability to process private data.
 
 # 2020 Production Deployments
 
@@ -26,7 +26,7 @@ Each use case has several primary attributes:
 
 - **Dev Teams:** These are the development teams within OpenMined who will be leading the development of features needed for this particular use case. Note that one dev team can contribute toward multiple use cases and multiple dev teams can be co-operating on the same use case. Note additionally that dev teams often include a mixture of members who are paid/volunteer.
 
-- **Funding Partners:** This is the list of partner organizations and individuals who are funding the open-source development. These contributions can come in the form of funding for internal engineering talent (meaning an entity is paying their internal developers to work on the open-source components of the project), funding for developer grants (meaning an entity is sponsoring OpenMined dev team members to develop the project),  or other sources of support such as cloud compute credits, marketing contributions, or pen-testing.
+- **Funding Partners:** This is the list of partner organizations and individuals who are funding the open-source development. These contributions can come in the form of funding for internal engineering talent (meaning an entity is paying their internal developers to work on the open-source components of the project), funding for developer grants (meaning an entity is sponsoring OpenMined dev team members to develop the project), or other sources of support such as cloud compute credits, marketing contributions, or pen-testing.
 
 - **Use Case Partner:** This is the partner organization within which we will actually be deploying our sofware. For smartphone applications, this is the organization which has a smartphone app. For healthcare applications, this is the hospital network. In most cases it is ideal for this to also be one of the funding partners, but this is not a strict requirment.
 
@@ -40,107 +40,102 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 - **Enterprise Use-Case 1:** Cross-Organization Model Evaluation
 
-    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team)
+  - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team)
 
-    - Funding Partners: TBD - Apply Here
+  - Funding Partners: TBD - Apply Here
 
-    - Use Case Partner: TBD - Apply Here
+  - Use Case Partner: TBD - Apply Here
 
-    - Educational Deliverables: 
-        - Written Example Server/Client Application + Tutorial
-        - End-of-year Course Module
+  - Educational Deliverables:
+    - Written Example Server/Client Application + Tutorial
+    - End-of-year Course Module
 
 - **Enterprise Use-Case 2:** Cross-Organization Federated Learning
 
-    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team), Tensorflow Team
+  - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team), Tensorflow Team
 
-    - Funding Partner: TBD - Apply Here
+  - Funding Partner: TBD - Apply Here
 
-    - Use Case Partner: TBD - Apply Here
+  - Use Case Partner: TBD - Apply Here
 
-    - Educational Deliverables: 
-        - Written Example Server/Client Application + Tutorial,
-        - End-of-year Course Module
-
+  - Educational Deliverables:
+    - Written Example Server/Client Application + Tutorial,
+    - End-of-year Course Module
 
 ## Smartphone Platform Use Cases
 
-- **Smartphone Use-Case 1:** [Federated Learning with Secure Aggregation across Web & Mobile](https://github.com/OpenMined/Roadmap/blob/master/web_and_mobile_team/projects/web_and_mobile_fl.md)
+- **Smartphone Use-Case 1:** [Federated Learning with Secure Aggregation across Web & Mobile](https://github.com/OpenMined/Roadmap/blob/master/web_and_mobile_team/projects/federated_learning.md)
 
-    - Lead Dev Team: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team)
-    - Supporting Dev Teams:
-        - [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
+  - Lead Dev Team: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team)
+  - Supporting Dev Teams:
 
-    - Funding Partners: 
-        - [PyTorch](https://pytorch.org/) ($250K across multiple use cases)
-            - [Initial Announcement](https://pytorch.org/blog/openmined-and-pytorch-launch-fellowship-funding-for-privacy-preserving-ml/)
-            - [Call for Contributors](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/)
-            - [Announce Contributors](https://blog.openmined.org/pytorch-grant-recipients/)
+    - [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
-    - Use Case Partner: TBD - If you would like to be the first to deploy this system within your app (and have our help to do so), please email partnerships@openmined.org.
+  - Funding Partners:
 
-    - Educational Deliverables: 
+    - [PyTorch](https://pytorch.org/) (\$250K across multiple use cases)
+      - [Initial Announcement](https://pytorch.org/blog/openmined-and-pytorch-launch-fellowship-funding-for-privacy-preserving-ml/)
+      - [Call for Contributors](https://blog.openmined.org/announcing-the-pytorch-openmined-federated-learning-fellowships/)
+      - [Announce Contributors](https://blog.openmined.org/pytorch-grant-recipients/)
 
-        - Written Example FL iOS Smartphone App + Tutorial
-        - Written Example FL Android Smartphone App + Tutorial        
-        - Written Example FL Web App + Tutorial
-        - End-of-year Course Module
+  - Use Case Partner: TBD - If you would like to be the first to deploy this system within your app (and have our help to do so), please email partnerships@openmined.org.
+
+  - Educational Deliverables:
+
+    - Written Example FL iOS Smartphone App + Tutorial
+    - Written Example FL Android Smartphone App + Tutorial
+    - Written Example FL Web App + Tutorial
+    - End-of-year Course Module
 
 - **Smartphone Use-Case 2:** Consumer-Selected Third-party On-Device ML
 
-    - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
+  - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
-    - Funding Partners: TBD
+  - Funding Partners: TBD
 
-    - Use Case Partner: TBD
+  - Use Case Partner: TBD
 
-    - Educational Deliverables
+  - Educational Deliverables
 
-        - Written Example FL iOS Smartphone App + Tutorial
-        - Written Example FL Android Smartphone App + Tutorial        
-        - Written Example FL Web App + Tutorial
-        - End-of-year Course Module
+    - Written Example FL iOS Smartphone App + Tutorial
+    - Written Example FL Android Smartphone App + Tutorial
+    - Written Example FL Web App + Tutorial
+    - End-of-year Course Module
 
 - **Smartphone Use-Case 3:** [Encrypted MLaaS (continuation of 2019 RAAIS grant)](https://blog.openmined.org/raais/)
-    
-    - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
-    - Funding Partners: The RAAIS Foundation
+  - Dev Teams: [Web and Mobile Team](https://github.com/OpenMined/Roadmap/tree/master/web_and_mobile_team), [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team)
 
-    - Use Case Partner: United Nations Privacy Task Team
+  - Funding Partners: The RAAIS Foundation
 
+  - Use Case Partner: United Nations Privacy Task Team
 
 ## Open Research Platform Use Cases
 
 - **Open Research Use Case 1:** Open Model Hosting Platform
 
-    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), Tensorflow Team, [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team)
+  - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), Tensorflow Team, [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team)
 
-    - Funding Partners: TBD
+  - Funding Partners: TBD
 
-    - Use Case Partner: N/A - This will be deployed to the open internet for general use
+  - Use Case Partner: N/A - This will be deployed to the open internet for general use
 
-    - Educational Deliverables
+  - Educational Deliverables
 
-        - Tutorial/Documentation - how to host/use models on PyGrid
-        - Tutorial/Documentation - How to run your own node
-    
+    - Tutorial/Documentation - how to host/use models on PyGrid
+    - Tutorial/Documentation - How to run your own node
+
 - **Open Research Use Case 2:** Scalable, Debuggable Compute Use Case
 
-    - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team)
+  - Dev Teams: [PyGrid Team](https://github.com/OpenMined/Roadmap/tree/master/pygrid_team), [Security and Identity Team](https://github.com/OpenMined/Roadmap/tree/master/security_and_identity_team)
 
-    - Funding Partners: TBD
+  - Funding Partners: TBD
 
-    - Use Case Partner: TBD
+  - Use Case Partner: TBD
 
-    - Educational Deliverables
+  - Educational Deliverables
 
-        - Tutorial/Documentation - how to scale up compute for training ML models
-        - Tutorial/Documentation - how to do remote debugging using PySyft        
+    - Tutorial/Documentation - how to scale up compute for training ML models
+    - Tutorial/Documentation - how to do remote debugging using PySyft
 
-
-
-
-
-
-# 
+#
