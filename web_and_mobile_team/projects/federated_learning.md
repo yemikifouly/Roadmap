@@ -303,10 +303,10 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Add plans and protocols to PyGrid](https://github.com/OpenMined/PyGrid/issues/413)
 - [Add host federated training method to PyGrid](https://github.com/OpenMined/PyGrid/issues/435)
 - [Add get model method to PyGrid](https://github.com/OpenMined/PyGrid/issues/436)
-- Allow PyGrid to serve plan operations as either a list of individual commands (syft.js) or as TorchScript (Android and iOS) depending on the requesting environment
-- Implement federated learning cycles in PyGrid
-- Add averaging plan and global model updating functionality to PyGrid
-- _Optional_ - Add a few predefined averaging plans (like “Federated Average”) to PyGrid
+- [Allow PyGrid to serve plan operations as either a list of individual commands (syft.js) or as TorchScript (Android and iOS) depending on the requesting environment](https://github.com/OpenMined/PyGrid/issues/437)
+- [Implement federated learning cycles in PyGrid](https://github.com/OpenMined/PyGrid/issues/438)
+- [Add averaging plan and global model updating functionality to PyGrid](https://github.com/OpenMined/PyGrid/issues/439)
+- _Optional_ - [Add a few predefined averaging plans (like “Federated Average”) to PyGrid](https://github.com/OpenMined/PyGrid/issues/440)
 - _Optional_ - Allow for periodic status updates of current FL cycles on PyGrid
 
 ### syft-proto
