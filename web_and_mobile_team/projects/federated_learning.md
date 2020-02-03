@@ -316,9 +316,9 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 
 ### syft.js
 
-- Migrate syft.js to use Protobuf classes
+- [Migrate syft.js to use Protobuf classes](https://github.com/OpenMined/syft.js/issues/83)
 - Implement the command translation layer inside of syft.js
-- Implement split and stitch algorithm for data channels in syft.js
+- [Implement split and stitch algorithm for data channels in syft.js](https://github.com/OpenMined/syft.js/issues/78)
 - Add bandwidth and Internet connectivity test in syft.js
 - Scaffold basic proposed worker API in syft.js
 - Execute plans in syft.js
