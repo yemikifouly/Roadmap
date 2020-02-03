@@ -307,12 +307,12 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Implement federated learning cycles in PyGrid](https://github.com/OpenMined/PyGrid/issues/438)
 - [Add averaging plan and global model updating functionality to PyGrid](https://github.com/OpenMined/PyGrid/issues/439)
 - _Optional_ - [Add a few predefined averaging plans (like “Federated Average”) to PyGrid](https://github.com/OpenMined/PyGrid/issues/440)
-- _Optional_ - Allow for periodic status updates of current FL cycles on PyGrid
+- _Optional_ - [Allow for periodic status updates of current FL cycles on PyGrid](https://github.com/OpenMined/PyGrid/issues/441)
 
 ### syft-proto
 
-- Create Protobuf schemas from PySyft classes
-- Set up a CI pipeline and version release system in syft-proto with Github Actions
+- [Create Protobuf schemas from PySyft classes](https://github.com/OpenMined/syft-proto/issues/35)
+- [Set up a CI pipeline and version release system in syft-proto with Github Actions](https://github.com/OpenMined/syft-proto/issues/36)
 
 ### syft.js
 
@@ -359,9 +359,10 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 
 ### Threepio
 
-- Write a language-agnostic command translation layer that is tri-directional between PyTorch, TensorFlow, and TensorFlow.js
+- [Scaffold the initial version of Threepio](https://github.com/OpenMined/threepio/issues/4)
+- [Create initial automatic translation layer](https://github.com/OpenMined/threepio/issues/5)
 
 ### General
 
-- Work on multiple end-to-end demos utilizing all 3 Syft worker libraries
-- Develop end-to-end testing suite for all full system testing
+- [Work on multiple end-to-end demos utilizing all 3 Syft worker libraries](https://github.com/OpenMined/syft.js/issues/85)
+- [Develop end-to-end testing suite for all full system testing](https://github.com/OpenMined/syft-proto/issues/37)
