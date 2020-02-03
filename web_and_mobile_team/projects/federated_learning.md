@@ -317,42 +317,42 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 ### syft.js
 
 - [Migrate syft.js to use Protobuf classes](https://github.com/OpenMined/syft.js/issues/83)
-- Implement the command translation layer inside of syft.js
+- [Implement the command translation layer inside of syft.js](https://github.com/OpenMined/syft.js/issues/86)
 - [Implement split and stitch algorithm for data channels in syft.js](https://github.com/OpenMined/syft.js/issues/78)
-- Add bandwidth and Internet connectivity test in syft.js
-- Scaffold basic proposed worker API in syft.js
+- [Add bandwidth and Internet connectivity test in syft.js](https://github.com/OpenMined/syft.js/issues/88)
+- [Scaffold basic proposed worker API in syft.js](https://github.com/OpenMined/syft.js/issues/87)
 - Execute plans in syft.js
 - Execute protocols in syft.js
 - Allow for training state to be persisted to temporary storage in the event of a failure in syft.js
 
 ### KotlinSyft
 
-- Create the basic structure of KotlinSyft
-- Implement WebRTC flow in Android
-- Implement Protobuf in Android
-- Set up deployment to Maven
-- Implement split and stitch algorithm for data channels in Android
+- [Create the basic structure of KotlinSyft](https://github.com/OpenMined/KotlinSyft/issues/29)
+- [Implement WebRTC flow in Android](https://github.com/OpenMined/KotlinSyft/issues/11)
+- [Implement Protobuf in Android](https://github.com/OpenMined/KotlinSyft/issues/30)
+- [Set up deployment to Maven](https://github.com/OpenMined/KotlinSyft/issues/3)
+- [Implement split and stitch algorithm for data channels in Android](https://github.com/OpenMined/KotlinSyft/issues/31)
 - Add support for background task scheduling in Android
 - Implement sleep/wake detection in Android
 - Add support for charge detection and wifi detection in Android
-- Add bandwidth and Internet connectivity test in Android
-- Scaffold basic proposed worker API in Android
+- [Add bandwidth and Internet connectivity test in Android](https://github.com/OpenMined/KotlinSyft/issues/28)
+- [Scaffold basic proposed worker API in Android](https://github.com/OpenMined/KotlinSyft/issues/23)
 - Execute plans in Android
 - Execute protocols in Android
 - Allow for training state to be persisted to temporary storage in the event of a failure in Android
 
 ### SwiftSyft
 
-- Create the basic structure of SwiftSyft
-- Implement WebRTC flow in iOS
-- Implement Protobuf in iOS
-- Set up deployment to Cocoapods
-- Implement split and stitch algorithm for data channels in iOS
+- [Create the basic structure of SwiftSyft](https://github.com/OpenMined/SwiftSyft/issues/30)
+- [Implement WebRTC flow in iOS](https://github.com/OpenMined/SwiftSyft/issues/17)
+- [Implement Protobuf in iOS](https://github.com/OpenMined/SwiftSyft/issues/31)
+- [Set up deployment to Cocoapods](https://github.com/OpenMined/SwiftSyft/issues/27)
+- [Implement split and stitch algorithm for data channels in iOS](https://github.com/OpenMined/SwiftSyft/issues/32)
 - Add support for background task scheduling in iOS
 - Implement sleep/wake detection in iOS
 - Add support for charge detection and wifi detection in iOS
-- Add bandwidth and Internet connectivity test in iOS
-- Scaffold basic proposed worker API in iOS
+- [Add bandwidth and Internet connectivity test in iOS](https://github.com/OpenMined/SwiftSyft/issues/29)
+- [Scaffold basic proposed worker API in iOS](https://github.com/OpenMined/SwiftSyft/issues/28)
 - Execute plans in iOS
 - Execute protocols in iOS
 - Allow for training state to be persisted to temporary storage in the event of a failure in iOS
