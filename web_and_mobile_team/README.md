@@ -16,6 +16,13 @@ The team leader is [**Patrick Cason**](https://github.com/cereallarceny). Our te
       </a>
     </td>
     <td align="center">
+      <a href="https://github.com/mccorby">
+        <img src="https://avatars2.githubusercontent.com/u/4661075?v=4" width="100px;" alt="">
+        <br /><sub><b>Jose Corbacho</b></sub></a><br />
+        <sub>KotlinSyft</sub>
+      </a>
+    </td>
+    <td align="center">
       <a href="https://github.com/karlhigley">
         <img src="https://avatars2.githubusercontent.com/u/885295?v=4" width="100px;" alt="">
         <br /><sub><b>Karl Higley</b></sub></a><br />
@@ -23,10 +30,19 @@ The team leader is [**Patrick Cason**](https://github.com/cereallarceny). Our te
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/vvmnnnkv">
-        <img src="https://avatars2.githubusercontent.com/u/12518480?v=4" width="100px;" alt="">
-        <br /><sub><b>Vova Manannikov</b></sub></a><br />
-        <sub>syft.js, PySyft</sub>
+      <a href="https://github.com/Prtfw">
+        <img src="https://avatars1.githubusercontent.com/u/13193437?v=4" width="100px;" alt="">
+        <br /><sub><b>Maddie Shang</b></sub></a><br />
+        <sub>PySyft, PyGrid</sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/mjjimenez">
+        <img src="https://avatars3.githubusercontent.com/u/4151269?v=4" width="100px;" alt="">
+        <br /><sub><b>Mark Jimenez</b></sub></a><br />
+        <sub>SwiftSyft</sub>
       </a>
     </td>
     <td align="center">
@@ -34,22 +50,6 @@ The team leader is [**Patrick Cason**](https://github.com/cereallarceny). Our te
         <img src="https://avatars3.githubusercontent.com/u/2600677?v=4" width="100px;" alt="">
         <br /><sub><b>Mike Nolski</b></sub></a><br />
         <sub>Threepio, syft.js</sub>
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/Prtfw">
-        <img src="https://avatars1.githubusercontent.com/u/13193437?v=4" width="100px;" alt="">
-        <br /><sub><b>Maddie Shang</b></sub></a><br />
-        <sub>PySyft, PyGrid</sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/mjjimenez">
-        <img src="https://avatars3.githubusercontent.com/u/4151269?v=4" width="100px;" alt="">
-        <br /><sub><b>Mark Jimenez</b></sub></a><br />
-        <sub>SwiftSyft</sub>
       </a>
     </td>
     <td align="center">
@@ -60,10 +60,10 @@ The team leader is [**Patrick Cason**](https://github.com/cereallarceny). Our te
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/mccorby">
-        <img src="https://avatars2.githubusercontent.com/u/4661075?v=4" width="100px;" alt="">
-        <br /><sub><b>Jose Corbacho</b></sub></a><br />
-        <sub>KotlinSyft</sub>
+      <a href="https://github.com/vvmnnnkv">
+        <img src="https://avatars2.githubusercontent.com/u/12518480?v=4" width="100px;" alt="">
+        <br /><sub><b>Vova Manannikov</b></sub></a><br />
+        <sub>syft.js, PySyft</sub>
       </a>
     </td>
   </tr>
