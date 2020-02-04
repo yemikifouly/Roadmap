@@ -10,8 +10,8 @@ Conversely, for Android and iOS, we have chosen to utilize PyTorch Mobile. PyTor
 
 In addition to "plans" that represent a batch of operations to be executed on a single worker, PySyft introduces the concept of a "protocol" that represents a distributed computation graph with defined worker roles. A "protocol" deployed to workers should allow executing SMPC algorithms such as those necessary for secure aggregation. Secure aggregation will require workers, or a subset of workers, to communicate directly - this can be accomplished by using WebRTC to establish a peer-to-peer data channel between workers. This allows for an added layer of protection to the workers that is separate from differential privacy which is applied as part of the eventual model update process on PyGrid.
 
-***Patrick Cason**<br />
-Web and Mobile Team Lead*
+**\*Patrick Cason**<br />
+Web and Mobile Team Lead\*
 
 ## Terminology
 
@@ -148,8 +148,8 @@ fl_config = {
   num_cycles: 5,
   do_not_reuse_workers_until_cycle: 4,
   cycle_length: 8 * 60 * 60,  # 8 hours
-  minimum_upload_speed: 2000,  # 2mbps
-  minimum_download_speed: 4000  #4 mbps
+  minimum_upload_speed: 2000,  # 2 mbps
+  minimum_download_speed: 4000  # 4 mbps
 }
 
 sy.test_federated_training(
@@ -231,11 +231,11 @@ job.on('ready', ({ model, model_config, protocol }) => {
   }
 
   // 3. Execute the plan in batches.
-  for(let i = 0; i < rawData.length; i++) {
+  for(let i = 0; i < data.length; i++) {
     job.executeTrainingPlan(model, data[i], target[i], optimizer);
   }
 
-// 4. Once the training plan has been executed, execute the protocol if there is one. This will spawn WebRTC and send this job's model to other workers to be securely aggregated. Afterwards, or assuming there isn't a protocol, report the result back to PyGrid.
+  // 4. Once the training plan has been executed, execute the protocol if there is one. This will spawn WebRTC and send this job's model to other workers to be securely aggregated. Afterwards, or assuming there isn't a protocol, report the result back to PyGrid.
   if(protocol) {
     job.executeProtocol().then(() => {
       job.report();
