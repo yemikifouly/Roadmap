@@ -202,7 +202,7 @@ const worker = new syft({
 // You may set up multiple jobs.
 const job = worker.newJob({
   model: 'my-federated-model',
-  version: '0.1.0'
+  version: '0.1.0'  // If omitted, PyGrid will assume it's the latest version
 });
 
 // 1. Determine if there is a cycle that the worker can join. If there is a cycle available, it will automatically download the model, plan, and config from PyGrid. If there isn't a cycle available, this code block will automatically retry at the requested timestamp.
