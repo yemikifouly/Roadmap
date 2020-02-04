@@ -1,18 +1,18 @@
 # Writing Team Roadmap
 
-Welcome to the Writing Team's Roadmap! We are a group of volunteer writers from various backgrounds who are all interested in writing blog posts for the [**OpenMined blog**](https://blog.openmined.org/). 
+Welcome to the Writing Team's Roadmap! We are a group of volunteer writers from various backgrounds who are all interested in writing blog posts for the [**OpenMined blog**](https://blog.openmined.org/).
 
-We produce a range of material for the OpenMined community - for example, blog posts can be [announcements](https://blog.openmined.org/pytorch-grant-recipients/), [interviews](https://blog.openmined.org/openmined-featured-contributor-november-2019/), [code demos](https://blog.openmined.org/encrypted-training-on-mnist/) and/or [tutorials](https://blog.openmined.org/training-cnns-using-spdz/), or [journalism style pieces](https://blog.openmined.org/federated-learning-differential-privacy-and-encrypted-computation-for-medical-imaging/) about privacy and topics of interest to the OpenMined community. 
+We produce a range of material for the OpenMined community - for example, blog posts can be [announcements](https://blog.openmined.org/pytorch-grant-recipients/), [interviews](https://blog.openmined.org/openmined-featured-contributor-november-2019/), [code demos](https://blog.openmined.org/encrypted-training-on-mnist/) and/or [tutorials](https://blog.openmined.org/training-cnns-using-spdz/), or [journalism style pieces](https://blog.openmined.org/federated-learning-differential-privacy-and-encrypted-computation-for-medical-imaging/) about privacy and topics of interest to the OpenMined community.
 
 ## Team Members
 
-The team leader is [**Emma Bluemke**](https://github.com/em-blue). Our team is comprised of over 25 people located worldwide, from North America to Japan. 
+The team leader is [**Emma Bluemke**](https://github.com/em-blue). Our team is comprised of over 25 people located worldwide, from North America to Japan.
 
 Here's an (ever-growing) list of our published blog contributors, past and present:
 
 <table>
-<tr>
-<td align="center">
+  <tr>
+    <td align="center">
       <a href="https://github.com/iamtrask">
         <img src="https://avatars3.githubusercontent.com/u/4328594?s=400&v=4" width="100px;" alt="">
         <br /><sub><b>Andrew Trask</b></sub></a><br />
@@ -79,17 +79,15 @@ Here's an (ever-growing) list of our published blog contributors, past and prese
      <td align="center">
       <a href="https://github.com/H4LL">
         <img src="https://avatars0.githubusercontent.com/u/46713492?s=400&v=4" width="100px;" alt="">
-        <br /><sub><b>Adam J HAll</b></sub></a><br />
+        <br /><sub><b>Adam J Hall</b></sub></a><br />
       </a>
     </td>
   </tr>
 </table>
 
-
 ## Ask us to write something!
 
 If you would like us to write about something specific, you can suggest it through this [form link](https://forms.gle/FSRF6n3A2ZUFfWvL9). For example, you could ask us to provide a tutorial or demo of something in particular, or write about a particular use case of privacy preserving machine learning.
-
 
 ## Curious? Want to help? Have questions?
 
