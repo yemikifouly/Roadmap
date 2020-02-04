@@ -321,9 +321,9 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Implement split and stitch algorithm for data channels in syft.js](https://github.com/OpenMined/syft.js/issues/78)
 - [Add bandwidth and Internet connectivity test in syft.js](https://github.com/OpenMined/syft.js/issues/88)
 - [Scaffold basic proposed worker API in syft.js](https://github.com/OpenMined/syft.js/issues/87)
-- Execute plans in syft.js
-- Execute protocols in syft.js
-- Allow for training state to be persisted to temporary storage in the event of a failure in syft.js
+- [Execute plans in syft.js](https://github.com/OpenMined/syft.js/issues/89)
+- [Execute protocols in syft.js](https://github.com/OpenMined/syft.js/issues/90)
+- [Allow for training state to be persisted to temporary storage in the event of a failure in syft.js](https://github.com/OpenMined/syft.js/issues/91)
 
 ### KotlinSyft
 
@@ -332,14 +332,14 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Implement Protobuf in Android](https://github.com/OpenMined/KotlinSyft/issues/30)
 - [Set up deployment to Maven](https://github.com/OpenMined/KotlinSyft/issues/3)
 - [Implement split and stitch algorithm for data channels in Android](https://github.com/OpenMined/KotlinSyft/issues/31)
-- Add support for background task scheduling in Android
-- Implement sleep/wake detection in Android
-- Add support for charge detection and wifi detection in Android
+- [Add support for background task scheduling in Android](https://github.com/OpenMined/KotlinSyft/issues/35)
+- [Implement sleep/wake detection in Android](https://github.com/OpenMined/KotlinSyft/issues/36)
+- [Add support for charge detection and wifi detection in Android](https://github.com/OpenMined/KotlinSyft/issues/37)
 - [Add bandwidth and Internet connectivity test in Android](https://github.com/OpenMined/KotlinSyft/issues/28)
 - [Scaffold basic proposed worker API in Android](https://github.com/OpenMined/KotlinSyft/issues/23)
-- Execute plans in Android
-- Execute protocols in Android
-- Allow for training state to be persisted to temporary storage in the event of a failure in Android
+- [Execute plans in Android](https://github.com/OpenMined/KotlinSyft/issues/32)
+- [Execute protocols in Android](https://github.com/OpenMined/KotlinSyft/issues/33)
+- [Allow for training state to be persisted to temporary storage in the event of a failure in Android](https://github.com/OpenMined/KotlinSyft/issues/34)
 
 ### SwiftSyft
 
@@ -348,14 +348,14 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Implement Protobuf in iOS](https://github.com/OpenMined/SwiftSyft/issues/31)
 - [Set up deployment to Cocoapods](https://github.com/OpenMined/SwiftSyft/issues/27)
 - [Implement split and stitch algorithm for data channels in iOS](https://github.com/OpenMined/SwiftSyft/issues/32)
-- Add support for background task scheduling in iOS
-- Implement sleep/wake detection in iOS
-- Add support for charge detection and wifi detection in iOS
+- [Add support for background task scheduling in iOS](https://github.com/OpenMined/SwiftSyft/issues/36)
+- [Implement sleep/wake detection in iOS](https://github.com/OpenMined/SwiftSyft/issues/37)
+- [Add support for charge detection and wifi detection in iOS](https://github.com/OpenMined/SwiftSyft/issues/38)
 - [Add bandwidth and Internet connectivity test in iOS](https://github.com/OpenMined/SwiftSyft/issues/29)
 - [Scaffold basic proposed worker API in iOS](https://github.com/OpenMined/SwiftSyft/issues/28)
-- Execute plans in iOS
-- Execute protocols in iOS
-- Allow for training state to be persisted to temporary storage in the event of a failure in iOS
+- [Execute plans in iOS](https://github.com/OpenMined/SwiftSyft/issues/33)
+- [Execute protocols in iOS](https://github.com/OpenMined/SwiftSyft/issues/34)
+- [Allow for training state to be persisted to temporary storage in the event of a failure in iOS](https://github.com/OpenMined/SwiftSyft/issues/35)
 
 ### Threepio
 
