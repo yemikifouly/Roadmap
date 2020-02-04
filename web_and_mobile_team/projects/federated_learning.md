@@ -55,7 +55,7 @@ A developer designs their FL model using PyTorch in PySyft. This process involve
 
 The training plan will be the function that is inevitably run by a worker, taking the model and a batch of training data as input. The plan’s logic includes forward and backward propagation, as well as the weight update step.
 
-The averaging plan will instruct PyGrid on how to average models that are returned from the workers. This is also known as the "model update" plan whereby PyGrid receives trained models from workers, averages them, and then updates the global model before beginning another cycle.
+The averaging plan will instruct PyGrid on how to average model diffs that are returned from the workers. This is also known as the "model update" plan whereby PyGrid receives trained model diffs from workers, averages them, and then updates the global model before beginning another cycle.
 
 If a protocol is written, this will be executed by the worker libraries after they’ve finished executing the training plan. This will allow the workers to split off into groups to perform some sort of computation amongst themselves using WebRTC as a peer-to-peer data transfer layer. This allows for secure aggregation to be performed and later decrypted by PyGrid.
 
@@ -235,7 +235,7 @@ job.on('ready', ({ model, model_config, protocol }) => {
     job.executeTrainingPlan(model, data[i], target[i], optimizer);
   }
 
-  // 4. Once the training plan has been executed, execute the protocol if there is one. This will spawn WebRTC and send this job's model to other workers to be securely aggregated. Afterwards, or assuming there isn't a protocol, report the result back to PyGrid.
+  // 4. Once the training plan has been executed, execute the protocol if there is one. This will spawn WebRTC and send this job's model to other workers to be securely aggregated. Afterwards, or assuming there isn't a protocol, report the resulting diff back to PyGrid.
   if(protocol) {
     job.executeProtocol().then(() => {
       job.report();
@@ -255,15 +255,15 @@ It’s entirely possible that after calling `start()` that PyGrid requests for t
 
 When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, training plan, and model configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `executeTrainingPlan()`.
 
-Once the plan is fully trained, we must check if there is a protocol the worker needs to run. Assuming there isn’t, we can run `report()` which will then upload the resulting model back to PyGrid for aggregation into the global model. However, if a protocol is present, it will need to be run by calling `executeProtocol()`. The trained model will automatically be passed into the `executeProtocol()` function in the background.
+Once the plan is fully trained, we must check if there is a protocol the worker needs to run. Assuming there isn’t, we can run `report()` which will then upload the resulting model diff back to PyGrid for aggregation into the global model. However, if a protocol is present, it will need to be run by calling `executeProtocol()`. The trained model will automatically be passed into the `executeProtocol()` function in the background.
 
 You can expect the code sample above to change slightly between the various worker libraries. It’s worth considering that the mobile workers are also plagued by different concerns like detecting when the user is awake or asleep, determining charge status, and being limited to execution time limits for background tasks to name a few. It will be up to the mobile libraries themselves to do the detection of this criteria (battery level, charging/not-charging, internet connection speed, and asleep/awake), and we will provide reasonable default levels. However, any of these criteria should be allowed to be overridden by the developer as per their specific use-case.
 
 ### 5. Aggregate
 
-At this point, a model has either been trained and reported back to PyGrid or shares of a securely aggregated (and trained) model have been reported back to PyGrid. If PyGrid receives multiple shares of a model (as it would in the presence of a protocol), then it will need to combine the shares and then decrypt the result. If the report is sent within the time limit of the cycle (set in the federated learning configuration above), it will be accepted. Otherwise, it will be discarded. The worker will not be notified in either situation.
+At this point, a model has either been trained and the diff has been reported back to PyGrid. Alternatively, if a protocol exists, then shares of a securely aggregated (and trained) model diff have been reported back to PyGrid. If PyGrid receives multiple shares of a model diff, then it will need to combine the shares and then decrypt the result. If the report is sent within the time limit of the cycle (set in the federated learning configuration above), it will be accepted. Otherwise, it will be discarded. The worker will not be notified in either situation.
 
-At this point, PyGrid needs to update the global model with the new weights. Google does this by using an algorithm they appropriately call "Federated Averaging". While it’s perfectly appropriate to use their averaging algorithm, we opted to allow the developer to define their own in the form of a PySyft plan, aptly called the "averaging plan". This function will go through each of the reported models and average them against the global model, which then persists as the new global model for future cycles.
+At this point, PyGrid needs to update the global model with the new weights. Google does this by using an algorithm they appropriately call "Federated Averaging". While it’s perfectly appropriate to use their averaging algorithm, we opted to allow the developer to define their own in the form of a PySyft plan, aptly called the "averaging plan". This function will go through each of the reported model diffs and average them against the global model, which then persists as the new global model for future cycles.
 
 It’s important to note that this will actually create a new "checkpoint" of the model. If the developer originally uploaded a model to PyGrid of name "my-federated-model" with a version of "0.1.0", then it would automatically create a checkpoint of "1". For each checkpoint after that, the value will increment. It would be beneficial for PyGrid to also allow a developer to name their checkpoints something more memorable like "latest" or "stable" or "best-version-yet".
 
