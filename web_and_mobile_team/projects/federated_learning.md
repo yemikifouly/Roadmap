@@ -47,7 +47,7 @@ We will also use this section for defining each of the components of the OpenMin
 
 [View a diagram of this process](https://drive.google.com/file/d/1xWKA9YEJCdUq-y49Sx1vSlR5n-48v7dH/view?usp=sharing)
 
-The OpenMined federated learning workflow is loosely inspired Google’s federated learning workflow, but we provide a bit more generalization since we don’t also control the operating system itself. Our workflow consists of the following steps:
+The OpenMined federated learning workflow is [loosely inspired Google’s federated learning workflow](https://arxiv.org/pdf/1902.01046.pdf), but we provide a bit more generalization since we don’t also control the operating system itself. Our workflow consists of the following steps:
 
 ### 1. Design
 
