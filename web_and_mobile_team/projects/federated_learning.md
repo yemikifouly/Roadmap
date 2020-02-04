@@ -326,6 +326,7 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Execute plans in syft.js](https://github.com/OpenMined/syft.js/issues/89)
 - [Execute protocols in syft.js](https://github.com/OpenMined/syft.js/issues/90)
 - [Allow for training state to be persisted to temporary storage in the event of a failure in syft.js](https://github.com/OpenMined/syft.js/issues/91)
+- _Optional_ - [Add a stopping method that stops the training process](https://github.com/OpenMined/syft.js/issues/93)
 
 ### KotlinSyft
 
@@ -342,6 +343,7 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Execute plans in Android](https://github.com/OpenMined/KotlinSyft/issues/32)
 - [Execute protocols in Android](https://github.com/OpenMined/KotlinSyft/issues/33)
 - [Allow for training state to be persisted to temporary storage in the event of a failure in Android](https://github.com/OpenMined/KotlinSyft/issues/34)
+- _Optional_ - [Add a stopping method that stops the training process](https://github.com/OpenMined/KotlinSyft/issues/39)
 
 ### SwiftSyft
 
@@ -358,6 +360,7 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Execute plans in iOS](https://github.com/OpenMined/SwiftSyft/issues/33)
 - [Execute protocols in iOS](https://github.com/OpenMined/SwiftSyft/issues/34)
 - [Allow for training state to be persisted to temporary storage in the event of a failure in iOS](https://github.com/OpenMined/SwiftSyft/issues/35)
+- _Optional_ - [Add a stopping method that stops the training process](https://github.com/OpenMined/SwiftSyft/issues/40)
 
 ### Threepio
 
