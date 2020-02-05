@@ -2,12 +2,39 @@
 
 ## Our roadmap for 2020
 
-- Focus on production: encrypted MLaaS
-- Integration of SEAL in ML with [TenSEAL](https://github.com/OpenMined/tenseal)
-- Integration of [Crypten in PySyft](https://github.com/OpenMined/PySyft/tree/pytorch/crypten)
-- Integration of new crypto protocols (FSS, etc)
-- Development of Encrypted NLP with [SyferText](https://github.com/OpenMined/SyferText)
-- Usecase: Encrypted Training on ImageNet
+<details><summary><b>Focus on production: encrypted MLaaS</b></summary>
+<p>
+One of our main goals is to provide a production-ready framework to help people use privacy-preserving ML solutions in their businesses. This requires:
+
+- an extended security audit both on PySyft and on its dependencies, including PyTorch. 
+- a well defined and robust MPC protocol which supports arbitrary number of parties and a well-defined list of functions
+</p>
+</details>
+<details><summary><b>Integration of SEAL in ML with <a href="https://github.com/OpenMined/tenseal">TenSEAL</a></b></summary>
+<p>
+We currently support standard protocols in MPC but would like to extend support for Homomorphic Encryption and other protocols (like Functional Encryption), to allow researchers to use any of them and to compare them for their usecase. In particular, we will provide support for the 1st class HE library SEAL built by Microsoft, through a dedicated library named TenSEAL which adds the abstraction of Tensor on top of SEAL. This will be DL framework agnostic.
+</p>
+</details>
+<details><summary><b>Integration of <a href="https://github.com/OpenMined/PySyft/tree/pytorch/crypten">Crypten in PySyft</a></b></summary>
+<p>
+We're also working on integrating the CrypTen library for MPC which is developed by Facebook. This is a top priority project of the team, and will allow users to benefit from the massive optimizations of this library which works only with PyTorch.
+</p>
+</details>
+<details><summary><b>Integration of new crypto protocols (FSS, etc)</b></summary>
+<p>
+We're still integrating new crypto protocols natively in PySyft. This allows us to use them in a wider set of contexts, especially on mobiles and across all kind of computation frameworks. Among the next protocols we can cite Function Secret Sharing which is used in MPC to reduce the number of interactions compared to previous state-of-the-art MPC protocols.
+</p>
+</details>
+<details><summary><b>Development of Encrypted NLP with <a href="https://github.com/OpenMined/SyferText">SyferText</a></b></summary>
+<p>
+Text processing in Federated Learning is an under-estimated complex task. We're building a library to help users clean and process remote text datasets through various methods like tokenization, etc. This library is inspired from Spacy to deliver the same user-friendly interface, and will be 100% compatible with PySyft.
+</p>
+</details>
+<details><summary><b>Usecase: Encrypted Training on ImageNet</b></summary>
+<p>
+Closely related to our focus on production, we want to demonstrate the utility of the crypto protocols that we build or integrate, by building a encrypted training usecase on a more ambitious dataset than MNIST, our ideal target is for example ImageNet.
+</p>
+</details>
 
 ## Team Members
 
