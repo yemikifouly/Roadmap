@@ -1,25 +1,154 @@
 # Crypto Team
 
-## 2020 Roadmap
+## Our roadmap for 2020
 
-- Focus on production: encrypted MLaaS
-- Integration of SEAL in ML with [TenSEAL](https://github.com/OpenMined/tenseal)
-- Integration of [Crypten in PySyft](https://github.com/OpenMined/PySyft/tree/pytorch/crypten)
-- Integration of new crypto protocols (FSS, etc)
-- Development of Encrypted NLP with [SyferText](https://github.com/OpenMined/SyferText)
-- Usecase: Encrypted Training on ImageNet
+<details><summary><b>Focus on production: encrypted MLaaS</b></summary>
+<p>
+One of our main goals is to provide a production-ready framework to help people use privacy-preserving ML solutions in their businesses. This requires:
 
-## Our awesome team
+- an extended security audit both on PySyft and on its dependencies, including PyTorch. 
+- a well defined and robust MPC protocol which supports arbitrary number of parties and a well-defined list of functions
+</p>
+</details>
+<details><summary><b>Integration of SEAL in ML with <a href="https://github.com/OpenMined/tenseal">TenSEAL</a></b></summary>
+<p>
+We currently support standard protocols in MPC but would like to extend support for Homomorphic Encryption and other protocols (like Functional Encryption), to allow researchers to use any of them and to compare them for their usecase. In particular, we will provide support for the 1st class HE library SEAL built by Microsoft, through a dedicated library named TenSEAL which adds the abstraction of Tensor on top of SEAL. This will be DL framework agnostic.
+</p>
+</details>
+<details><summary><b>Integration of <a href="https://github.com/OpenMined/PySyft/tree/pytorch/crypten">Crypten in PySyft</a></b></summary>
+<p>
+We're also working on integrating the CrypTen library for MPC which is developed by Facebook. This is a top priority project of the team, and will allow users to benefit from the massive optimizations of this library which works only with PyTorch.
+</p>
+</details>
+<details><summary><b>Integration of new crypto protocols (FSS, etc)</b></summary>
+<p>
+We're still integrating new crypto protocols natively in PySyft. This allows us to use them in a wider set of contexts, especially on mobiles and across all kind of computation frameworks. Among the next protocols we can cite Function Secret Sharing which is used in MPC to reduce the number of interactions compared to previous state-of-the-art MPC protocols.
+</p>
+</details>
+<details><summary><b>Development of Encrypted NLP with <a href="https://github.com/OpenMined/SyferText">SyferText</a></b></summary>
+<p>
+Text processing in Federated Learning is an under-estimated complex task. We're building a library to help users clean and process remote text datasets through various methods like tokenization, etc. This library is inspired from Spacy to deliver the same user-friendly interface, and will be 100% compatible with PySyft.
+</p>
+</details>
+<details><summary><b>Usecase: Encrypted Training on ImageNet</b></summary>
+<p>
+Closely related to our focus on production, we want to demonstrate the utility of the crypto protocols that we build or integrate, by building a encrypted training usecase on a more ambitious dataset than MNIST, our ideal target is for example ImageNet.
+</p>
+</details>
 
-- Adam James Hall
-- Alan Aboudib
-- Ayoub Benaissa
-- André Farias
-- Ajay Singh
-- George Muraru
-- Jason Paumier
-- Patrick Cason
-- Théo Ryffel
-- Yugandhar Tripathi
+## Team Members
 
+The team leader is [**Théo Ryffel**](https://github.com/LaRiffle). Our team is comprised of the following people.
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/LaRiffle">
+        <img src="https://avatars3.githubusercontent.com/u/12446521?s=240" width="170px;" alt="Théo Ryffel">
+        <br /><sub><b>Théo Ryffel</b></sub></a><br />
+        <sub>Team Lead</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/H4LL">
+        <img src="https://avatars1.githubusercontent.com/u/46713492?s=240" width="170px;" alt="">
+        <br /><sub><b>Adam James Hall</b></sub></a><br />
+        <sub>SplitNN</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/AlanAboudib">
+        <img src="https://avatars1.githubusercontent.com/u/11991643?s=240" width="170px;" alt="">
+        <br /><sub><b>Alan Aboudib</b></sub></a><br />
+        <sub>SyferText</sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/youben11">
+        <img src="https://avatars0.githubusercontent.com/u/21220087?s=240" width="170px;" alt="">
+        <br /><sub><b>Ayoub Benaissa</b></sub></a><br />
+        <sub>CrypTen integ. + TenSEAL</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/andrelmfarias">
+        <img src="https://avatars2.githubusercontent.com/u/43521764?s=240" width="170px;" alt="">
+        <br /><sub><b>André Farias</b></sub></a><br />
+        <sub>Encrypted Lin. Reg.</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ajnovice">
+        <img src="https://avatars3.githubusercontent.com/u/3927652?s=240" width="170px;" alt="">
+        <br /><sub><b>Ajay Singh</b></sub></a><br />
+        <sub>CrypTen integration</sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/gmuraru">
+        <img src="https://avatars1.githubusercontent.com/u/7805588?s=240" width="170px;" alt="">
+        <br /><sub><b>George Muraru</b></sub></a><br />
+        <sub>CrypTen integration</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/jasopaum">
+        <img src="https://avatars2.githubusercontent.com/u/19286277?s=240" width="170px;" alt="">
+        <br /><sub><b>Jason Paumier</b></sub></a><br />
+        <sub>Plans + Protocols</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Yugandhartripathi">
+        <img src="https://avatars2.githubusercontent.com/u/32102845?s=240" width="170px;" alt="">
+        <br /><sub><b>Yugandhar Tripathi</b></sub></a><br />
+        <sub>Fixed Precision</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+## Projects
+
+Learn more about our projects!
+
+<details><summary>CrypTen Integration</summary>
+<p>
+More coming soon
+</p>
+</details>
+<details><summary>SyferText</summary>
+<p>
+More coming soon
+</p>
+</details>
+<details><summary>TenSEAL</summary>
+<p>
+More coming soon
+</p>
+</details>
+<details><summary>Function Secret Sharing</summary>
+<p>
+More coming soon
+</p>
+</details>
+
+
+## Weekly Meetings
+
+We have weekly meetings that are currently private, [but we take detailed notes for each meeting](./meetings). Here you can will find our weekly status updates: where each member of our team has recorded what they worked on the previous week and what they plan to work on in the upcoming week.
+
+## Contact
+
+### Want to join?
 *[Apply to the crypto team!](https://docs.google.com/forms/d/1T6MJ21V1lb7aEr4ilZOTYQXzxXP6KbpLumZVmTZMSuY/edit)*
+
+### Have questions?
+- [**@Théo Ryffel** on Slack](https://app.slack.com/client/T6963A864/C69RB18LA/user_profile/UA2LD4PHS)
+- [**@theo-ryffel** on Linkedin](https://www.linkedin.com/in/theo-ryffel/)
+- [**@theoryffel** on Twitter](https://twitter.com/theoryffel)
+- Email: theo [at] openmined.org

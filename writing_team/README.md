@@ -85,13 +85,13 @@ Here's an (ever-growing) list of our published blog contributors, past and prese
   </tr>
 </table>
 
-## Projects
+## Ask us to write something!
 
-If you would like us to write about a topic or provide a tutorial or demo of something in particular, you can suggest it through this [form link](https://forms.gle/FSRF6n3A2ZUFfWvL9).
+If you would like us to write about something specific, you can suggest it through this [form link](https://forms.gle/FSRF6n3A2ZUFfWvL9). For example, you could ask us to provide a tutorial or demo of something in particular, or write about a particular use case of privacy preserving machine learning.
 
 ## Curious? Want to help? Have questions?
 
-If you would like to join the writing team and contribute to OpenMined's blog, you can apply through this [form link](https://forms.gle/XKEqWu76ojnrsGcw5)
+If you would like to join the writing team and contribute to OpenMined's blog, you can apply through this [form link](https://forms.gle/XKEqWu76ojnrsGcw5).
 
 If you have questions about this team, contact Emma Bluemke below:
 
