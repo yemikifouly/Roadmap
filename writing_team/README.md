@@ -102,5 +102,5 @@ If you would like to join the writing team and contribute to OpenMined's blog, y
 If you have questions about this team, contact Emma Bluemke below:
 
 - [**@emma** on Slack](https://app.slack.com/client/T6963A864/D6BHGRDN3/user_profile/U6966R9BJ)
-- [**@emmabluemke** on Twitter](https://https://twitter.com/emmabluemke)
+- [**@emmabluemke** on Twitter](https://twitter.com/emmabluemke)
 - Email: emma@openmined.org
