@@ -10,7 +10,7 @@ In line with this mission, this year we will seek to accomplish the folowing goa
 
 While it might seem a bit surprising for an un-incorporated entity to be pursuing production deployments and the development of open courseware, we feel that it is essential to pursue real-world deployments in the development of our software. Specifically, it's impossible to truly know whether we are writing the _right_ software without actively seeking to use it to solve someone's problem.
 
-Furthermore, we feel that our ability to educate individuals on how to make the more privacy-preserving is only legitimate if we ourselves are involved in actually deploying real-world use cases.
+Furthermore, we feel that our ability to educate individuals on how to make the world more privacy-preserving is only legitimate if we ourselves are involved in actually deploying real-world use cases.
 
 Thus, in 2020 we will seek to put our software into production and, leveraging our knowledge through experience, teach others to do so. Thus, we have two key activities for the year:
 
