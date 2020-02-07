@@ -19,11 +19,18 @@ The team leader is [**Andrew Trask**](https://github.com/iamtrask). Our team is 
       <a href="https://github.com/karlhigley">
         <img src="https://avatars2.githubusercontent.com/u/885295?v=4" width="100px;" alt="">
         <br /><sub><b>Karl Higley</b></sub></a><br />
-        <sub>PySyft and syft-proto</sub>
+        <sub>Full Member</sub>
       </a>
     </td>
   </tr>
 </table>
+
+### Member Types: 
+
+- **Full Member:** someone who is a permanent, experienced member of the team. They are expected to attend weekly meetings and push code every week. They will typically have a project of their own.
+- **Learning Member:** someone who is new to the team, whose main role is to be spinning on the codebase, responsibilities, ongoing projects, and future roadmap for the team. New team recruits will typically be a learning member for the first 30 days of their team membership.
+- **Guest Member:** someone who is temporarily "on-loan" from another team to work on a specific project.
+- **Embedded Member:** someone who is actually a full member of a different team, but who is permanently "embedded" within our team to facilitate a specific long-term collaboration. For example, one team's member can be an embedded member in another team if there's always lots of cross-collab, such as a member of the writing team being an "embedded" member of they Syft Core team to manage code documentation efforts.
 
 ## Projects
 
