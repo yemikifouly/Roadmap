@@ -1,5 +1,22 @@
 ## TL;DR
 
+The current goal is to be able to start a crypten computation from a syft worker. Crypten parties would be run inside syft workers, those workers can be holding their own private data, which should be encrypted during computation. The way this should be used can be illustrated in the following code snippet.
+
+```python
+# alice and bob are syft workers
+
+@run_multiworkers([alice, bob,], master_addr="127.0.0.1")
+def crypten_computation():
+	# load data from syft worker using its tag
+	# “crypten_data” is a tag that reference two different private tensors at alice and bob
+	alice_tensor = syft_crypt.load("crypten_data", src=1)
+	bob_tensor = syft_crypt.load("crypten_data", src=2)
+	res = alice_tensor * bob_tensor
+	return res.get_plain_text()
+```
+
+To be able to provide such API, we need to be able to start a crypten party at each worker, be able to load data from the worker using a tag, send the function in a secure manner and get back the result. We details each milestone below:
+
 - [x] 1. Launch Crypten parties from Pysyft to run a fixed function with fixed data
 - [x] 2. Get a return value from a CrypTen execution
 - [ ] 3. Send common argument tensors to all parties (~plan.state)
@@ -62,26 +79,28 @@ for rank in range(n_workers):
 ## 2. Get a return value from a CrypTen execution
 
 TBD: what is the kind of data that we can currently return? Only numbers? tensors?
-What's our strategy to return arbitraty objects (list, tuple, dict) containing tensors and/or numbers ?
+What's our strategy to return arbitrary objects (list, tuple, dict) containing tensors and/or numbers ?
 
 ## 3. Send common argument tensors to all parties (~plan.state)
 
-Because each CrypTen party can refer to a Syft worker, we leverage the syft architecture to send public tensors to all parties. Hence, the Syft serde protocol will be used here, which allows to send close to every type of objects.
+Because each CrypTen party can refer to a Syft worker, we leverage the syft architecture to send public tensors to all parties. Hence, the Syft serde protocol will be used here, which allows to send close to every type of objects and will be using protobuf in the mid term.
 
-This functionality is important to execute remotely plans on CrypTen workers. Basically, this will be equivalent to sending the state of a plan, which only happens at the beginning of the plan execution.
+This functionality is important to execute remote plans on CrypTen workers. Basically, this will be equivalent to sending the state of a plan, which only happens at the beginning of the plan execution.
 
 ## 4. Allow CrypTen parties to load private data from Syft workers using tags
 
 > https://github.com/OpenMined/PySyft/pull/3003
 
-In practice, this will be done by modifying the `crypten.load` function to provide a search function which actually calls the associated syft worker for a search on its object store based on tags (we have in syft: `worker.search('#tag1', '#tag2')`). This implies that the data will be sent in advance to those syft workers. This is indeed the case because  we will send in advance the  whole plan, including its state and the pertaining state tensors that we be required by the modified `crypten.load`
+In practice, this will be done by modifying the `crypten.load` function to provide a search function which actually calls the associated syft worker for a search on its object store based on tags (we have in syft: `worker.search('#tag1', '#tag2')`). This implies that the data will be sent in advance to those syft workers. This is indeed the case because  we will send in advance the  whole plan, including its state and the pertaining state tensors that we be required by the modified `crypten.load`. We will have the reverse operation as well to save back tensors in the syft worker.
+
+![PySyft-Crypten-context-of-execution-v2](https://user-images.githubusercontent.com/21220087/74042481-e820ba80-49c7-11ea-9c72-99bd0f2f0b8d.png)
 
 
 ## 5. Send a function to CrypTen parties to be executed (using Plans)
 
-To switch from fixed to arbitrary function execution, we will leverage again the syft workers and their ability to receive and execute Plans. In practice, a crypten worker will ask his syft worker to run a specific plan which will only contain hight level operations (like x * y for a MPC multiplication). Crypten will then use his crypto protocol to transcript properly these high level operations into crypto-level sub operations.
+To switch from fixed to arbitrary function execution, we will leverage again the syft workers and their ability to receive and execute Plans. In practice, a crypten worker will ask his syft worker to run a specific plan which will only contain high level operations (like x * y for a MPC multiplication). Crypten will then use his crypto protocol to transcript properly these high level operations into crypto-level sub operations.
 
-The internal implementation of this will not be very different of how Plans currently work: instead of running operations on PlaceHolders instantiated by torch tensors, the PlaceHolders will be instantiated by `crypten.tensors`.
+The internal implementation of this will not be very different from how Plans currently work: instead of running operations on PlaceHolders instantiated by torch tensors, the PlaceHolders will be instantiated by `crypten.tensors`.
 
 ## 6. Remote model evaluation by CrypTen parties on private data (using Plans with a state)
 
@@ -91,15 +110,19 @@ This will be an important milestone to benchmark efficiency of this solution.
 
 ## 7. Choose between imposing the backward pass from Plans or use CrypTen Autograd
 
-Moving forward to model training requires to handle backpropagation. We have here several possibilies:
+Moving forward to model training requires to handle backpropagation. We have here several possibilities:
 - If we use directly CrypTen AutogradTensor (so now the execution chain from the plan standpoint would be `PlaceHolder>CrypTen.AutogradTensor>CrypTen.Tensor`)
 
 - Plans might handle backward at some point: currently plans only have a `forward` set of operations, but in future they will also have a `backward` one. This one could be used by CrypTen parties to run their gradient computation. This `backward` could actually be computed using syft.AutogradTensors.
 
 ## 8. Remote model training using Plans on private data
 
-Next step will be to integrate this in a real usecase, which should in particular integrate an optimizer and a loss function.
+Next step will be to integrate this in a real use case, which should in particular integrate an optimizer and a loss function.
 
 Secure aggregation would be a nice feature at this point.
 
 This will be an important milestone to benchmark efficiency of this solution.
+
+
+### Questions to the CrypTen team:
+- Would it be possible to modify `crypten.load` to support custom loader for tensors instead of `torch.load` which is currently used under the hood?
