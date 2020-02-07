@@ -82,6 +82,12 @@ Here's an (ever-growing) list of our published blog contributors, past and prese
         <br /><sub><b>Adam J Hall</b></sub></a><br />
       </a>
     </td>
+     <td align="center">
+      <a href="https://github.com/kapilchandorikar/">
+        <img src="https://avatars2.githubusercontent.com/u/54285651?s=400&v=4" width="100px;" alt="">
+        <br /><sub><b>Kapil Chandorikar</b></sub></a><br />
+      </a>
+    </td>
   </tr>
 </table>
 
