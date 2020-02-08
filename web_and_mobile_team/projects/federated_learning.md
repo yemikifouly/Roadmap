@@ -365,7 +365,9 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 ### Threepio
 
 - [Scaffold the initial version of Threepio](https://github.com/OpenMined/threepio/issues/4)
-- [Create initial automatic translation layer](https://github.com/OpenMined/threepio/issues/5)
+- [Create translation mappings](https://github.com/OpenMined/threepio/issues/22)
+- [Create automatic translation layer in javascript](https://github.com/OpenMined/threepio/issues/5)
+- [Create automatic translation layer in python](https://github.com/OpenMined/threepio/issues/23)
 
 ### General
 
