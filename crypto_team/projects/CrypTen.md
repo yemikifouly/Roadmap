@@ -1,3 +1,36 @@
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/LaRiffle">
+        <img src="https://avatars3.githubusercontent.com/u/12446521?s=240" width="170px;" alt="Théo Ryffel">
+        <br /><sub><b>Théo Ryffel</b></sub></a><br />
+        <sub>Team Lead</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/youben11">
+        <img src="https://avatars0.githubusercontent.com/u/21220087?s=240" width="170px;" alt="">
+        <br /><sub><b>Ayoub Benaissa</b></sub></a><br />
+        <sub>CrypTen integration</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ajnovice">
+        <img src="https://avatars3.githubusercontent.com/u/3927652?s=240" width="170px;" alt="">
+        <br /><sub><b>Ajay Singh</b></sub></a><br />
+        <sub>CrypTen integration</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/gmuraru">
+        <img src="https://avatars1.githubusercontent.com/u/7805588?s=240" width="170px;" alt="">
+        <br /><sub><b>George Muraru</b></sub></a><br />
+        <sub>CrypTen integration</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## TL;DR
 
 The current goal is to be able to start a crypten computation from a syft worker. Crypten parties would be run inside syft workers, those workers can be holding their own private data, which should be encrypted during computation. The way this should be used can be illustrated in the following code snippet.
@@ -90,13 +123,17 @@ This functionality is important to execute remote plans on CrypTen workers. Basi
 ## 4. Allow CrypTen parties to load private data from Syft workers using tags
 
 > https://github.com/OpenMined/PySyft/pull/3003
+> https://github.com/OpenMined/PySyft/issues/3043
 
-In practice, this will be done by modifying the `crypten.load` function to provide a search function which actually calls the associated syft worker for a search on its object store based on tags (we have in syft: `worker.search('#tag1', '#tag2')`). This implies that the data will be sent in advance to those syft workers. This is indeed the case because  we will send in advance the  whole plan, including its state and the pertaining state tensors that we be required by the modified `crypten.load`. We will have the reverse operation as well to save back tensors in the syft worker.
+In practice, this will be done by modifying the `crypten.load` function to provide a search function which actually calls the associated syft worker for a search on its object store based on tags (we have in syft: `worker.search('#tag1', '#tag2')`). We will have the reverse operation as well to save back tensors in the syft worker.
 
 ![PySyft-Crypten-context-of-execution-v2](https://user-images.githubusercontent.com/21220087/74042481-e820ba80-49c7-11ea-9c72-99bd0f2f0b8d.png)
 
 
 ## 5. Send a function to CrypTen parties to be executed (using Plans)
+
+> https://github.com/OpenMined/PySyft/issues/3025
+> https://github.com/OpenMined/PySyft/issues/2987
 
 To switch from fixed to arbitrary function execution, we will leverage again the syft workers and their ability to receive and execute Plans. In practice, a crypten worker will ask his syft worker to run a specific plan which will only contain high level operations (like x * y for a MPC multiplication). Crypten will then use his crypto protocol to transcript properly these high level operations into crypto-level sub operations.
 
@@ -104,7 +141,7 @@ The internal implementation of this will not be very different from how Plans cu
 
 ## 6. Remote model evaluation by CrypTen parties on private data (using Plans with a state)
 
-In this step, we combine the two previous steps to combine a model evaluation (which is just a Plan with a state) using private data, accessed through the  modifier `crypten.load`.
+In this step, we combine the two previous steps to combine a model evaluation (which is just a Plan with a state) using private data, accessed through the  modifier `crypten.load`. Note that in this case, we consider the model to be visible to the crypten party: it will be shipped using `plan.state`. Using private models which are not owned by the data owner is still under investigation.
 
 This will be an important milestone to benchmark efficiency of this solution.
 
@@ -117,7 +154,7 @@ Moving forward to model training requires to handle backpropagation. We have her
 
 ## 8. Remote model training using Plans on private data
 
-Next step will be to integrate this in a real use case, which should in particular integrate an optimizer and a loss function.
+Next step will be to integrate this in a real use case, which should in particular integrate an optimizer and a loss function. As in step 6, the model will be visible by all parties, until we support loading private models.
 
 Secure aggregation would be a nice feature at this point.
 
@@ -126,3 +163,4 @@ This will be an important milestone to benchmark efficiency of this solution.
 
 ### Questions to the CrypTen team:
 - Would it be possible to modify `crypten.load` to support custom loader for tensors instead of `torch.load` which is currently used under the hood?
+- Would it be possible to load private tensors, ie tensors whose shares are held by different parties?
