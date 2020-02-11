@@ -10,8 +10,8 @@ Conversely, for Android and iOS, we have chosen to utilize PyTorch Mobile. PyTor
 
 In addition to "plans" that represent a batch of operations to be executed on a single worker, PySyft introduces the concept of a "protocol" that represents a distributed computation graph with defined worker roles. A "protocol" deployed to workers should allow executing SMPC algorithms such as those necessary for secure aggregation. Secure aggregation will require workers, or a subset of workers, to communicate directly - this can be accomplished by using WebRTC to establish a peer-to-peer data channel between workers. This allows for an added layer of protection to the workers that is separate from differential privacy which is applied as part of the eventual model update process on PyGrid.
 
-**\*Patrick Cason**<br />
-Web and Mobile Team Lead\*
+**Patrick Cason<br />**
+*Web and Mobile Team Lead*
 
 ## Terminology
 
@@ -365,7 +365,9 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 ### Threepio
 
 - [Scaffold the initial version of Threepio](https://github.com/OpenMined/threepio/issues/4)
-- [Create initial automatic translation layer](https://github.com/OpenMined/threepio/issues/5)
+- [Create translation mappings](https://github.com/OpenMined/threepio/issues/22)
+- [Create automatic translation layer in javascript](https://github.com/OpenMined/threepio/issues/5)
+- [Create automatic translation layer in python](https://github.com/OpenMined/threepio/issues/23)
 
 ### General
 

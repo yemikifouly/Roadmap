@@ -82,6 +82,12 @@ Here's an (ever-growing) list of our published blog contributors, past and prese
         <br /><sub><b>Adam J Hall</b></sub></a><br />
       </a>
     </td>
+     <td align="center">
+      <a href="https://github.com/kapilchandorikar/">
+        <img src="https://avatars2.githubusercontent.com/u/54285651?s=400&v=4" width="100px;" alt="">
+        <br /><sub><b>Kapil Chandorikar</b></sub></a><br />
+      </a>
+    </td>
   </tr>
 </table>
 
@@ -96,5 +102,5 @@ If you would like to join the writing team and contribute to OpenMined's blog, y
 If you have questions about this team, contact Emma Bluemke below:
 
 - [**@emma** on Slack](https://app.slack.com/client/T6963A864/D6BHGRDN3/user_profile/U6966R9BJ)
-- [**@emmabluemke** on Twitter](https://https://twitter.com/emmabluemke)
+- [**@emmabluemke** on Twitter](https://twitter.com/emmabluemke)
 - Email: emma@openmined.org

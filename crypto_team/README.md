@@ -6,16 +6,18 @@
 <p>
 One of our main goals is to provide a production-ready framework to help people use privacy-preserving ML solutions in their businesses. This requires:
 
-- an extended security audit both on PySyft and on its dependencies, including PyTorch. 
+- an extended security audit both on PySyft and on its dependencies, including PyTorch.
 - a well defined and robust MPC protocol which supports arbitrary number of parties and a well-defined list of functions
 </p>
 </details>
 <details><summary><b>Integration of SEAL in ML with <a href="https://github.com/OpenMined/tenseal">TenSEAL</a></b></summary>
 <p>
 We currently support standard protocols in MPC but would like to extend support for Homomorphic Encryption and other protocols (like Functional Encryption), to allow researchers to use any of them and to compare them for their usecase. In particular, we will provide support for the 1st class HE library SEAL built by Microsoft, through a dedicated library named TenSEAL which adds the abstraction of Tensor on top of SEAL. This will be DL framework agnostic.
+
+<b>Read the <a href="./projects/TenSEAL.md">project Roadmap</a>!</b>
 </p>
 </details>
-<details><summary><b>Integration of <a href="https://github.com/OpenMined/PySyft/tree/pytorch/crypten">Crypten in PySyft</a></b></summary>
+<details><summary><b>Integration of <a href="./projects/CrypTen.md">Crypten in PySyft</a></b></summary>
 <p>
 We're also working on integrating the CrypTen library for MPC which is developed by Facebook. This is a top priority project of the team, and will allow users to benefit from the massive optimizations of this library which works only with PyTorch.
 </p>
@@ -116,9 +118,9 @@ The team leader is [**Théo Ryffel**](https://github.com/LaRiffle). Our team is 
 
 Learn more about our projects!
 
-<details><summary>CrypTen Integration</summary>
+<details><summary><a href="./projects/CrypTen.md">CrypTen integration roadmap</a></summary>
 <p>
-More coming soon
+Checkout the link
 </p>
 </details>
 <details><summary>SyferText</summary>
@@ -126,9 +128,9 @@ More coming soon
 More coming soon
 </p>
 </details>
-<details><summary>TenSEAL</summary>
+<details><summary><a href="./projects/TenSEAL.md">TenSEAL roadmap</a></summary>
 <p>
-More coming soon
+Checkout the link
 </p>
 </details>
 <details><summary>Function Secret Sharing</summary>
@@ -145,6 +147,9 @@ We have weekly meetings that are currently private, [but we take detailed notes 
 ## Contact
 
 ### Want to join?
+
+If you're already a contributor to PySyft, and if you're interested to to work on crypto related use cases, you should definitely join us!
+
 *[Apply to the crypto team!](https://docs.google.com/forms/d/1T6MJ21V1lb7aEr4ilZOTYQXzxXP6KbpLumZVmTZMSuY/edit)*
 
 ### Have questions?
