@@ -11,7 +11,7 @@ Conversely, for Android and iOS, we have chosen to utilize PyTorch Mobile. PyTor
 In addition to "plans" that represent a batch of operations to be executed on a single worker, PySyft introduces the concept of a "protocol" that represents a distributed computation graph with defined worker roles. A "protocol" deployed to workers should allow executing SMPC algorithms such as those necessary for secure aggregation. Secure aggregation will require workers, or a subset of workers, to communicate directly - this can be accomplished by using WebRTC to establish a peer-to-peer data channel between workers. This allows for an added layer of protection to the workers that is separate from differential privacy which is applied as part of the eventual model update process on PyGrid.
 
 **Patrick Cason<br />**
-*Web and Mobile Team Lead*
+_Web and Mobile Team Lead_
 
 ## Terminology
 
@@ -128,13 +128,13 @@ secure_aggregation_protocol = sy.Protocol(worker1, worker2, worker3)
 
 ### 2. Test
 
-At this point, a developer will test their code against VirtualWorkers in PySyft, allowing them to locally simulate the process of deploying their model to the edge. The developer will also want to define their initial model parameters (e.g. model name, version, hyperparameters, etc.) and federated learning configuration (e.g. the number of cycles, maximum number of workers, etc.).
+At this point, a developer will test their code against VirtualWorkers in PySyft, allowing them to locally simulate the process of deploying their model to the edge. The developer will also want to define their initial model parameters (e.g. model name, version, hyperparameters, etc.) and server configuration (e.g. the number of cycles, maximum number of workers, etc.).
 
 This process will create a network of VirtualWorkers in PySyft, send the training plan to each of them, execute the model on each of the VirtualWorkers, push the results back to PySyft, run the averaging plan to update the global model, and finally return the model back to the developer for inspection.
 
 ```py
 # These attributes should correspond to inputs in the training_plan
-model_config = {
+client_config = {
   name: "my-federated-model",
   version: "0.1.0",
   batch_size: 32,
@@ -142,7 +142,7 @@ model_config = {
   optimizer: "SGD"
 }
 
-fl_config = {
+server_config = {
   max_workers: 100,
   pool_selection: "random",  # or "iterate"
   num_cycles: 5,
@@ -157,8 +157,8 @@ sy.test_federated_training(
   training_plan=training_plan,
   averaging_plan=averaging_plan,
   protocol=secure_aggregation_protocol,
-  model_config=model_config,
-  fl_config=fl_config
+  client_config=client_config,
+  server_config=server_config
 )
 ```
 
@@ -182,8 +182,8 @@ pygrid.host_federated_training(
   training_plan=training_plan,
   averaging_plan=averaging_plan,
   protocol=secure_aggregation_protocol,
-  model_config=model_config,
-  fl_config=fl_config
+  client_config=client_config,
+  server_config=server_config
 )
 ```
 
@@ -211,8 +211,8 @@ const job = worker.newJob({
 job.start();
 
 // 2. Once the worker has been approved to participate in a cycle and the model, plan, and config have been downloaded...
-job.on('ready', ({ model, model_config, protocol }) => {
-  const { batch_size, optimizer } = model_config;
+job.on('ready', ({ model, client_config, protocol }) => {
+  const { batch_size, optimizer } = client_config;
 
   // Load your data and targets
   const rawData = [image1, image2, image3, image4, image5, ...];
@@ -253,7 +253,7 @@ Upon first glance, the example above is performing a lot of "magic" behind the s
 
 It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into "sleep mode" until that time. This will disable the socket connection and start a timer.
 
-When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, training plan, and model configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `executeTrainingPlan()`.
+When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, training plan, and client configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `executeTrainingPlan()`.
 
 Once the plan is fully trained, we must check if there is a protocol the worker needs to run. Assuming there isn’t, we can run `report()` which will then upload the resulting model diff back to PyGrid for aggregation into the global model. However, if a protocol is present, it will need to be run by calling `executeProtocol()`. The trained model will automatically be passed into the `executeProtocol()` function in the background.
 
@@ -261,7 +261,7 @@ You can expect the code sample above to change slightly between the various work
 
 ### 5. Aggregate
 
-At this point, a model has either been trained and the diff has been reported back to PyGrid. Alternatively, if a protocol exists, then shares of a securely aggregated (and trained) model diff have been reported back to PyGrid. If PyGrid receives multiple shares of a model diff, then it will need to combine the shares and then decrypt the result. If the report is sent within the time limit of the cycle (set in the federated learning configuration above), it will be accepted. Otherwise, it will be discarded. The worker will not be notified in either situation.
+At this point, a model has either been trained and the diff has been reported back to PyGrid. Alternatively, if a protocol exists, then shares of a securely aggregated (and trained) model diff have been reported back to PyGrid. If PyGrid receives multiple shares of a model diff, then it will need to combine the shares and then decrypt the result. If the report is sent within the time limit of the cycle (set in the server configuration above), it will be accepted. Otherwise, it will be discarded. The worker will not be notified in either situation.
 
 At this point, PyGrid needs to update the global model with the new weights. Google does this by using an algorithm they appropriately call "Federated Averaging". While it’s perfectly appropriate to use their averaging algorithm, we opted to allow the developer to define their own in the form of a PySyft plan, aptly called the "averaging plan". This function will go through each of the reported model diffs and average them against the global model, which then persists as the new global model for future cycles.
 
@@ -269,7 +269,7 @@ It’s important to note that this will actually create a new "checkpoint" of th
 
 ### 6. Inspect
 
-Depending on the federated learning configuration, the developer may opt to have multiple training cycles. In this case, a new cycle will begin at the determined interval. However, assuming we’ve finished all the cycles, the model will now be ready for inspection by the developer and may be used for inference, retrained, or whatever they desire. The developer may decide to pull a specific version of a model, or may optionally decide to even pull a specific checkpoint instead. The process of federated learning is now considered complete.
+Depending on the server configuration, the developer may opt to have multiple training cycles. In this case, a new cycle will begin at the determined interval. However, assuming we’ve finished all the cycles, the model will now be ready for inspection by the developer and may be used for inference, retrained, or whatever they desire. The developer may decide to pull a specific version of a model, or may optionally decide to even pull a specific checkpoint instead. The process of federated learning is now considered complete.
 
 ```py
 import grid as gr
