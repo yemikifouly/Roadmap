@@ -20,15 +20,14 @@ Let’s start off by defining a few terms that will be regularly used throughout
 - **Model** - a standard machine learning model
 - **Operation/Command** - a single function in PyTorch, TensorFlow, or TensorFlow.js
 - **Plan** - a serialized list of operations that can be executed by a worker
-- **Protocol** - a graph of operations on a list of Workers
+- **Protocol** - a graph of operations on a list of workers, executed over WebRTC
 - **Worker** - any server, device, or browser that is capable of running a PySyft model for training and inference
 - **VirtualWorker** - a virtualized Python worker that’s capable of pretending to be a separate server-based worker
 - **PyTorch** - a deep learning library written in Python
 - **LibTorch** - the tensor-based mathematical library written in C++ that is called by PyTorch
 - **TorchScript** - a generated language that allows for a PyTorch method to be simplified into an object representing PyTorch operations. In the context of our system, we will serialize PySyft plans into TorchScript so that they may be executed by mobile worker libraries.
 - **Wrapper library** - a library written in one language that allows for execution in another language. For instance, there is a Java wrapper for LibTorch which is written in C++.
-- **Training plan** - the plan that a worker will run on their server, device, or browser
-- **Averaging plan** - the plan run by the central server that determines how the models should be aggregated to eventually update the global model
+- **Averaging plan** - the plan run by the central server (PyGrid) that determines how the models should be aggregated to eventually update the global model
 - **Cycle** - a single run of the federated learning process from workers pulling down the model and training it until the global model update process is finished
 - **Secure aggregation** - given a state where multiple parties each have one or more numbers, these techniques allow them to average their numbers without any party seeing any other party’s raw input to the average.
 - **Secure multi-party computation (SMPC)** - a class of algorithms allowing for multiple parties to collaboratively compute a function without revealing their inputs to the function to each other.
@@ -51,13 +50,11 @@ The OpenMined federated learning workflow is [loosely inspired Google’s federa
 
 ### 1. Design
 
-A developer designs their FL model using PyTorch in PySyft. This process involves the creation of a model, training plan, averaging plan, and (optionally) a protocol.
-
-The training plan will be the function that is inevitably run by a worker, taking the model and a batch of training data as input. The plan’s logic includes forward and backward propagation, as well as the weight update step.
+A developer designs their FL model using PyTorch in PySyft. This process involves the creation of a model, an averaging plan, and various plans and protocols a developer desires to run on the workers.
 
 The averaging plan will instruct PyGrid on how to average model diffs that are returned from the workers. This is also known as the "model update" plan whereby PyGrid receives trained model diffs from workers, averages them, and then updates the global model before beginning another cycle.
 
-If a protocol is written, this will be executed by the worker libraries after they’ve finished executing the training plan. This will allow the workers to split off into groups to perform some sort of computation amongst themselves using WebRTC as a peer-to-peer data transfer layer. This allows for secure aggregation to be performed and later decrypted by PyGrid.
+The developer may also define as many plans and protocols they desire for the worker to run on their device. For simplification purposes, you can think of a plan as code the worker runs by itself, and a protocol as code that's run by the worker in conjunction with one or more other workers. Plans are generally going to include the core training logic, while a protocol may allow multiple workers to perform secure aggregation or other forms of encrypted computation together over WebRTC.
 
 Below is a proposed sample code block of how this might work:
 
@@ -86,7 +83,16 @@ model = Net()
 x = torch.zeros(1, 10)
 y = torch.zeros(1, 1)
 
-# Training plan
+# Averaging plan - run by PyGrid
+@func2plan
+def averaging_plan(model_params):
+    sum = model_params[0]
+    for params in model_params[1:]:
+        sum += params
+    avg = sum / len(model_params)
+    return avg
+
+# Training plan - run by worker
 @func2plan(model=model, data=x, target=y, optimizer=nn.SGD(model.parameters(), lr=0.01))
 def training_plan(model, data, target, optimizer):
     data, target = data, target
@@ -96,16 +102,7 @@ def training_plan(model, data, target, optimizer):
     loss.backward()
     optimizer.step()
 
-# Averaging plan
-@func2plan
-def averaging_plan(model_params):
-    sum = model_params[0]
-    for params in model_params[1:]:
-        sum += params
-    avg = sum / len(model_params)
-    return avg
-
-# Secure aggregation protocol
+# Secure aggregation protocol - run by worker
 worker1 = sy.VirtualWorker(hook=hook, id="worker1")
 worker2 = sy.VirtualWorker(hook=hook, id="worker2")
 worker3 = sy.VirtualWorker(hook=hook, id="worker3")
@@ -130,10 +127,11 @@ secure_aggregation_protocol = sy.Protocol(worker1, worker2, worker3)
 
 At this point, a developer will test their code against VirtualWorkers in PySyft, allowing them to locally simulate the process of deploying their model to the edge. The developer will also want to define their initial model parameters (e.g. model name, version, hyperparameters, etc.) and server configuration (e.g. the number of cycles, maximum number of workers, etc.).
 
-This process will create a network of VirtualWorkers in PySyft, send the training plan to each of them, execute the model on each of the VirtualWorkers, push the results back to PySyft, run the averaging plan to update the global model, and finally return the model back to the developer for inspection.
+This process will create a network of VirtualWorkers in PySyft, send the various worker plans and protocols to each of them, execute the model on each of the VirtualWorkers, push the results back to PySyft, run the averaging plan to update the global model, and finally return the model back to the developer for inspection.
 
 ```py
-# These attributes should correspond to inputs in the training_plan
+# These attributes should correspond to inputs in the plans
+# You can include custom attributes in here to your liking, the only ones required by PyGrid are "name" and "version"
 client_config = {
   name: "my-federated-model",
   version: "0.1.0",
@@ -154,17 +152,17 @@ server_config = {
 
 sy.test_federated_training(
   model=model,
-  training_plan=training_plan,
-  averaging_plan=averaging_plan,
-  protocol=secure_aggregation_protocol,
+  client_plans={ "training_plan": training_plan },
+  client_protocols={ "secure_agg_protocol": secure_aggregation_protocol },
   client_config=client_config,
+  server_averaging_plan=averaging_plan,
   server_config=server_config
 )
 ```
 
 ### 3. Host
 
-Now that the model has been developed locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid gateway and send the model, training plan, averaging plan, optional protocol, and various configurations to be stored in PyGrid properly.
+Now that the model has been tested locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid gateway and send the model, various worker plans and protocols, averaging plan, and various configurations to be stored in PyGrid properly.
 
 ```py
 import grid as gr
@@ -179,10 +177,10 @@ pygrid.connect()
 
 pygrid.host_federated_training(
   model=model,
-  training_plan=training_plan,
-  averaging_plan=averaging_plan,
-  protocol=secure_aggregation_protocol,
+  client_plans={ "training_plan": training_plan },
+  client_protocols={ "secure_agg_protocol": secure_aggregation_protocol },
   client_config=client_config,
+  server_averaging_plan=averaging_plan,
   server_config=server_config
 )
 ```
@@ -210,8 +208,8 @@ const job = worker.newJob({
 // NOTE FOR MOBILE WORKERS: This is the place to check for a wifi connection, whether or not the device is charging, and whether or not the user is likely asleep.
 job.start();
 
-// 2. Once the worker has been approved to participate in a cycle and the model, plan, and config have been downloaded...
-job.on('ready', ({ model, client_config, protocol }) => {
+// 2. Once the worker has been approved to participate in a cycle and the model, plan(s), protocol(s), and config have been downloaded...
+job.on('ready', async ({ model, client_config }) => {
   const { batch_size, optimizer } = client_config;
 
   // Load your data and targets
@@ -230,20 +228,16 @@ job.on('ready', ({ model, client_config, protocol }) => {
     targets.push(rawTargets.splice(0, batch_size));
   }
 
-  // 3. Execute the plan in batches.
+  // 3. Execute the plan by name in batches.
   for(let i = 0; i < data.length; i++) {
-    job.executeTrainingPlan(model, data[i], target[i], optimizer);
+    await job.plans['training_plan'].execute(model, data[i], target[i], optimizer);
   }
 
-  // 4. Once the training plan has been executed, execute the protocol if there is one. This will spawn WebRTC and send this job's model to other workers to be securely aggregated. Afterwards, or assuming there isn't a protocol, report the resulting diff back to PyGrid.
-  if(protocol) {
-    job.executeProtocol().then(() => {
-      job.report();
-    });
-  }
-  else {
-    job.report();
-  }
+  // 4. Once the plan has been executed, execute the protocol. This will spawn WebRTC and send this job's model diff to other workers to be securely aggregated.
+  await job.protocols['secure_agg_protocol'].execute();
+
+  // 5. Afterwards, the job reports the resulting diff (or share of the securely aggregated diff) back to PyGrid.
+  job.report();
 });
 ```
 
@@ -253,9 +247,9 @@ Upon first glance, the example above is performing a lot of "magic" behind the s
 
 It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into "sleep mode" until that time. This will disable the socket connection and start a timer.
 
-When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, training plan, and client configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `executeTrainingPlan()`.
+When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, plan(s), protocol(s), and client configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `executePlan()` against one of their plans.
 
-Once the plan is fully trained, we must check if there is a protocol the worker needs to run. Assuming there isn’t, we can run `report()` which will then upload the resulting model diff back to PyGrid for aggregation into the global model. However, if a protocol is present, it will need to be run by calling `executeProtocol()`. The trained model will automatically be passed into the `executeProtocol()` function in the background.
+Once the plan is fully trained, the developer may opt to run a protocol with a group of other workers. We can do this by calling `executeProtocol()` against one of their protocols. The trained model will automatically be passed into the `executeProtocol()` function in the background.
 
 You can expect the code sample above to change slightly between the various worker libraries. It’s worth considering that the mobile workers are also plagued by different concerns like detecting when the user is awake or asleep, determining charge status, and being limited to execution time limits for background tasks to name a few. It will be up to the mobile libraries themselves to do the detection of this criteria (battery level, charging/not-charging, internet connection speed, and asleep/awake), and we will provide reasonable default levels. However, any of these criteria should be allowed to be overridden by the developer as per their specific use-case.
 
