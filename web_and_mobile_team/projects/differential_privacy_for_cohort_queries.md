@@ -1,8 +1,8 @@
 ## Introduction
 
-_Last modified: XXX_
+_Last modified: February 14th, 2020_
 
-XXX
+Encrypted Machine Learning as a Service (EMLaaS) is one of the primary use-cases of the OpenMined ecosystem. By allowing developers to query an encrypted dataset...
 
 **Patrick Cason<br />**
 _Web and Mobile Team Lead_
