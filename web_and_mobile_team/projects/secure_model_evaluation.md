@@ -1,6 +1,6 @@
 ## Introduction
 
-_Last modified: February 19th, 2020_
+_Last modified: February 20th, 2020_
 
 Secure model evaluation is one of the primary use-cases of the OpenMined ecosystem. By allowing developers to query a remote dataset, they can evaluate the effectiveness of their models on data they literally "cannot see".
 
@@ -35,8 +35,32 @@ We will also use this section for defining each of the components of the OpenMin
 
 ## Overview
 
-XXX
+### 1. Host
+
+Host data on a PyGrid node
+
+### 2. Permission
+
+Create users and set up roles
+
+### 3. Request
+
+Request access to data as a data scientist
+
+### 4. Enforce
+
+Enforce access requests as an administrator
 
 ## Projects
 
-XXX
+### PyGrid
+
+- [Hello world](https://google.com)
+
+### PySyft
+
+- [Hello world](https://google.com)
+
+### PyGrid Admin
+
+- [Hello world](https://google.com)
