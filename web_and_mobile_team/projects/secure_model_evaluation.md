@@ -37,19 +37,35 @@ We will also use this section for defining each of the components of the OpenMin
 
 ### 1. Host
 
-Host data on a PyGrid node
+To start, an individual or organization must deploy their own PyGrid network comprised of a single PyGrid gateway and one or many PyGrid nodes, which will be responsible for hosting private data and performing model evaluation. The PyGrid gateway will facilitate this work, allowing developers working with this network to not need to issue commands directly to a single node. Instead, commands may be issued to the gateway, which it then delegates to the appropriate node. This allows for the simple management of complex networks with hundreds or thousands of nodes.
+
+```python
+# IONESIO - Please replace this code block with PyGrid code that does the following:
+# 1. Create a basic PyGrid network with a gateway and multiple nodes
+# 2. Deploy this PyGrid network to a cloud provider or private cloud network
+```
+
+At this point, there is a fully-hosted PyGrid network running in the cloud. It's time to host data within that network and create helpful tags so that a data scientist requesting model evaluation can appropriately request only relevant datasets.
+
+```python
+# IONESIO - Please replace this code block with PyGrid code that does the following:
+# 1. Connect to this deployed PyGrid network as an administrator
+# 2. Host a diabetes patient dataset (can be arbitrarily defined as "MY_DIABETES_PATIENT_DATASET")
+# 3. Host a cancer patient dataset (can be arbitrarily defined as "MY_CANCER_PATIENT_DATASET")
+# 4. Tag each dataset appropriately
+```
 
 ### 2. Permission
 
-Create users and set up roles
+TODO: Create users and set up roles
 
 ### 3. Request
 
-Request access to data as a data scientist
+TODO: Request access to data as a data scientist
 
 ### 4. Enforce
 
-Enforce access requests as an administrator
+TODO: Enforce access requests as an administrator
 
 ## Projects
 
