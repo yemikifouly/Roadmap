@@ -57,7 +57,10 @@ At this point, there is a fully-hosted PyGrid network running in the cloud. It's
 
 ### 2. Permission
 
-TODO: Create users and set up roles
+At this point, we've created our network and are ready to begin creating users, roles, and permissions. At a high level, the permissioning system will have concept of users and roles: users can have a "privacy budget" and a list of associated roles, while roles will have lists of permissions ("things" that a user may or may not do). While it's possible to create custom roles, there are some defaults that apply to any PyGrid network:
+
+1. **User**<br />
+   Sample role
 
 ### 3. Request
 
