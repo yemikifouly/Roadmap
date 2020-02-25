@@ -61,6 +61,13 @@ Welcome to the PyGrid Team's Roadmap! This repository contains our short term (w
       </a>
     </td>
     <td align="center">
+      <a href="https://github.com/Prtfw">
+        <img src="https://avatars1.githubusercontent.com/u/13193437?v=4" width="100px;" alt="">
+        <br /><sub><b>Maddie Shang</b></sub></a><br />
+        <sub>PySyft, PyGrid</sub>
+      </a>
+    </td>
+    <td align="center">
       <a href="https://github.com/marcusvlc">
         <img src="https://avatars1.githubusercontent.com/u/25506278?s=460&v=4" width="100px;" alt="">
         <br /><sub><b>Marcus Vinicius</b></sub></a><br />
