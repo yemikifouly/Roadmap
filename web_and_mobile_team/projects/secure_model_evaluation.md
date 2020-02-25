@@ -35,6 +35,29 @@ We will also use this section for defining each of the components of the OpenMin
 
 ## Overview
 
+---
+
+TODO:
+
+1. Basic network capability with search
+2. Allow for model eval to happen in two ways:
+
+- I can send a model for validation
+- The model is already on the machine, and instead I send the evaluation script
+
+3. Tensor-level configuration:
+
+- What datasets are listed?
+- What datasets are unlisted?
+- What datasets are listed but request-only?
+- What specific users have altered permission per tensor?
+
+4. Job queueing
+
+5. Cloud providers
+
+---
+
 ### 1. Host
 
 To start, an individual or organization must deploy their own PyGrid network comprised of a single PyGrid gateway and one or many PyGrid nodes, which will be responsible for hosting private data and performing model evaluation. The PyGrid gateway will facilitate this work, allowing developers working with this network to not need to issue commands directly to a single node. Instead, commands may be issued to the gateway, which it then delegates to the appropriate node. This allows for the simple management of complex networks with hundreds or thousands of nodes.
@@ -57,16 +80,18 @@ At this point, there is a fully-hosted PyGrid network running in the cloud. It's
 
 ### 2. Permission
 
+TODO: Need to permission tensors, users, and the user to tensor relationship(s)
+
 At this point, we've created our network and are ready to begin creating users, roles, and permissions. At a high level, the permissioning system will have concept of users and roles: users can have a "privacy budget" and a list of associated roles, while roles will have lists of permissions ("things" that a user may or may not do). While it's possible to create custom roles, there are some defaults that apply to any PyGrid network:
 
 1. **User**<br />
    Sample role
 
-### 3. Request
+### 3 - X. FIGURE ME OUT
 
-TODO: Request access to data as a data scientist
+TODO: Do the data scientist workflow here
 
-### 4. Enforce
+### 5. Enforce
 
 TODO: Enforce access requests as an administrator
 
@@ -74,6 +99,8 @@ TODO: Enforce access requests as an administrator
 
 ### PyGrid
 
+- TODO: Add a project to change the names of gateway, node, and add network
+- TODO: Add a project to rearrange the flow of data hosting, authentication, etc.
 - [Hello world](https://google.com)
 
 ### PySyft
