@@ -194,7 +194,8 @@ import syft from 'syft.js';
 import tf from '@tensorflow/tfjs';
 
 const worker = new syft({
-  url: 'https://localhost:3000'
+  url: 'https://localhost:3000',
+  auth_token: MY_AUTH_TOKEN  // An optional authentication token that can validate the identity of a worker
 });
 
 // You may set up multiple jobs.
@@ -243,7 +244,9 @@ job.on('ready', async ({ model, client_config }) => {
 
 One initial detail worth noting is that it’s assumed a worker could be running multiple jobs at the same time. A syft worker will need to intelligently observe each job as unique, handling the current training state and other various resources and tasks independent of other jobs. It’s worth noting that mobile phones will not likely have the compute resources necessary for running multiple jobs simultaneously. Because of this, we should allow for multiple concurrent jobs to be executed, but warn the developer at compile time that this is very bad practice for mobile.
 
-Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will notify PyGrid that it is available for training and send with it some other information related to the worker: ping, average download speed, average upload speed, and the format that the worker likes to receive a plan (list of operations or TorchScript). It’s worth noting that we want to send as little information to PyGrid as possible, only what is strictly required to ensure a reasonably paced training cycle. **Workers will not send information related to wifi connectivity, charging state, or asleep/awakeness of the user. It will be the responsibility of the client-side mobile developer to determine what criteria is appropriate for when model training should take place.**
+Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will first authenticate with PyGrid by optionally passing an `auth_token`. If PyGrid has been configured to have access to verify authentication tokens of third-party oAuth systems, it will use the `auth_token` variable to check for a positive identity of a worker. In the event that no `auth_token` is passed and no oAuth solution exists in PyGrid itself, then this step will be skipped. In the event that no `auth_token` is passed when one is required, or if the `auth_token` that was passed is an invalid token, the worker will be notified by PyGrid that authentication has failed.
+
+After this, the worker will perform a network connection test with PyGrid to ensure that it has a viable connection for model training and inference. This will include the worker reporting the following information to PyGrid: ping, average download speed, average upload speed, and the format that the worker likes to receive a plan (list of operations or TorchScript). It’s worth noting that we want to send as little information to PyGrid as possible, only what is strictly required to ensure a reasonably paced training cycle. **Workers will not send information related to wifi connectivity, charging state, or asleep/awakeness of the user. It will be the responsibility of the client-side mobile developer to determine what criteria is appropriate for when model training should take place.**
 
 It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into "sleep mode" until that time. This will disable the socket connection and start a timer.
 
@@ -298,6 +301,7 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Add WebRTC socket signaling support to PyGrid](https://github.com/OpenMined/PyGrid/issues/412)
 - [Add host federated training method to PyGrid](https://github.com/OpenMined/PyGrid/issues/435)
 - [Add API worker websocket and HTTP endpoints for FL to PyGrid](https://github.com/OpenMined/PyGrid/issues/445)
+- [Add oAuth support for FL workflow](https://github.com/OpenMined/PyGrid/issues/496)
 - [Add get model method to PyGrid](https://github.com/OpenMined/PyGrid/issues/436)
 - [Allow PyGrid to serve plan operations as either a list of individual commands (syft.js) or as TorchScript (Android and iOS) depending on the requesting environment](https://github.com/OpenMined/PyGrid/issues/437)
 - [Implement federated learning cycles in PyGrid](https://github.com/OpenMined/PyGrid/issues/438)
