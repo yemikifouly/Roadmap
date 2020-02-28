@@ -293,7 +293,7 @@ There are many projects that we consider vital to achieving our MVP. [You may al
 - [Refactor PyTorch tensor hooking](https://github.com/OpenMined/PySyft/issues/2991)
 - [Allow PySyft to package plan operations either as a list of individual commands or as TorchScript](https://github.com/OpenMined/PySyft/issues/2994)
 - [Add test federated training method to PySyft](https://github.com/OpenMined/PySyft/issues/2995)
-- [Implement changes in PySyft client for federated learning](https://github.com/OpenMined/PySyft/issues/2996)
+- [Build a federated learning worker for PySyft](https://github.com/OpenMined/PySyft/issues/2996)
 - _Optional_ - [Implement the command translation layer inside of PySyft which will allow for PySyft Tensorflow plans to be converted to PyTorch](https://github.com/OpenMined/PySyft/issues/2997)
 
 ### PyGrid
