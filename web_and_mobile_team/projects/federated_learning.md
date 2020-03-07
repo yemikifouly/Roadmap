@@ -240,6 +240,23 @@ job.on('ready', async ({ model, client_config }) => {
   // 5. Afterwards, the job reports the resulting diff (or share of the securely aggregated diff) back to PyGrid.
   job.report();
 });
+
+job.on('rejected', ({ timeout }) => {
+  // Handle the job rejection
+  console.log('We have been rejected by PyGrid to participate in the job.')
+
+  const msUntilTry = timeout * 1000;
+
+  // Try to join the job again in "msUntilRetry" milliseconds
+  setTimeout(() => {
+    job.start();
+  }, msUntilRetry)
+});
+
+job.on('error', error => {
+  // Handle the job error
+  console.log('There was an error with executing one of the plans or protocols', error);
+});
 ```
 
 One initial detail worth noting is that it’s assumed a worker could be running multiple jobs at the same time. A syft worker will need to intelligently observe each job as unique, handling the current training state and other various resources and tasks independent of other jobs. It’s worth noting that mobile phones will not likely have the compute resources necessary for running multiple jobs simultaneously. Because of this, we should allow for multiple concurrent jobs to be executed, but warn the developer at compile time that this is very bad practice for mobile.
@@ -251,6 +268,8 @@ After this, the worker will perform a network connection test with PyGrid to ens
 It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into "sleep mode" until that time. This will disable the socket connection and start a timer.
 
 When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, plan(s), protocol(s), and client configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `execute()` against one of their plans.
+
+We also have two other event listeners: one for handling rejection of an FL cycle request by PyGrid (`on('rejected')`) and another one for handling error during the execution of a plan or protocol (`on('error')`). You may write whatever logic you desire in these event handler callbacks, but it's suggested that you automatically try to re-join an FL cycle after a provided `timeout`. The code example above shows how this will be done.
 
 Once the plan is fully trained, the developer may opt to run a protocol with a group of other workers. We can do this by calling `execute()` against one of their protocols. The trained model will automatically be passed into the `execute()` function in the background.
 
