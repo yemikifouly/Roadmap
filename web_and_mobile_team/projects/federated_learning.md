@@ -210,7 +210,7 @@ const job = worker.newJob({
 job.start();
 
 // 2. Once the worker has been approved to participate in a cycle and the model, plan(s), protocol(s), and config have been downloaded...
-job.on('ready', async ({ model, client_config }) => {
+job.on('accepted', async ({ model, client_config }) => {
   const { batch_size, optimizer } = client_config;
 
   // Load your data and targets
@@ -267,7 +267,7 @@ After this, the worker will perform a network connection test with PyGrid to ens
 
 It’s entirely possible that after calling `start()` that PyGrid requests for the worker to keep waiting and check back in at a later time. PyGrid will need to serve a timestamp to the worker notifying it of when to check back in. It should be noted that the worker will not need to call `start()` again at this later point; instead, the worker will simply go into "sleep mode" until that time. This will disable the socket connection and start a timer.
 
-When the `on('ready')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, plan(s), protocol(s), and client configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `execute()` against one of their plans.
+When the `on('accepted')` event listener is triggered, this means that the worker has been chosen to participate by PyGrid and the model, plan(s), protocol(s), and client configuration have been downloaded. Again, this magically happens in the background. At this point, the developer will likely batch their input and label data sets, and the worker may begin to run `execute()` against one of their plans.
 
 We also have two other event listeners: one for handling rejection of an FL cycle request by PyGrid (`on('rejected')`) and another one for handling error during the execution of a plan or protocol (`on('error')`). You may write whatever logic you desire in these event handler callbacks, but it's suggested that you automatically try to re-join an FL cycle after a provided `timeout`. The code example above shows how this will be done.
 
