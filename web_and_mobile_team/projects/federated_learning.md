@@ -50,9 +50,11 @@ The OpenMined federated learning workflow is [loosely inspired Google’s federa
 
 ### 1. Design
 
-A developer designs their FL model using PyTorch in PySyft. This process involves the creation of a model, an averaging plan, and various plans and protocols a developer desires to run on the workers.
+A developer designs their FL model using PyTorch in PySyft. This process involves the creation of a model, an averaging plan, a validation plan (optional), and various plans and protocols a developer desires to run on the workers.
 
 The averaging plan will instruct PyGrid on how to average model diffs that are returned from the workers. This is also known as the "model update" plan whereby PyGrid receives trained model diffs from workers, averages them, and then updates the global model before beginning another cycle.
+
+The validation plan will instruct PyGrid on how to validate any authentication tokens that a worker may send. PyGrid is not responsible for managing authentication. If a developer intends to uniquely identify each worker, they must provide some sort of way for PyGrid to validate the authentication token that it will receive from the worker. If no validation plan is defined, PyGrid will ignore any authentication tokens and will allow any worker to join a cycle. **It is dangerous to not supply a validation plan, and [will open up your model to Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack).**
 
 The developer may also define as many plans and protocols they desire for the worker to run on their device. For simplification purposes, you can think of a plan as code the worker runs by itself, and a protocol as code that's run by the worker in conjunction with one or more other workers. Plans are generally going to include the core training logic, while a protocol may allow multiple workers to perform secure aggregation or other forms of encrypted computation together over WebRTC.
 
@@ -61,6 +63,7 @@ Below is a proposed sample code block of how this might work:
 ```py
 import syft as sy
 import torch
+import requests
 
 hook = sy.TorchHook(torch)
 hook.local_worker.is_client_worker = False
@@ -91,6 +94,16 @@ def averaging_plan(model_params):
         sum += params
     avg = sum / len(model_params)
     return avg
+
+# Validation plan - run by PyGrid
+@func2plan
+def validation_plan(auth_token):
+    req = requests.post(
+      'https://example.com/api/users/validate-token',
+      json = {'token': auth_token})
+    res = req.json()
+
+    return res.valid
 
 # Training plan - run by worker
 @func2plan(model=model, data=x, target=y, optimizer=nn.SGD(model.parameters(), lr=0.01))
@@ -156,13 +169,14 @@ sy.test_federated_training(
   client_protocols={ "secure_agg_protocol": secure_aggregation_protocol },
   client_config=client_config,
   server_averaging_plan=averaging_plan,
+  server_validation_plan=validation_plan,
   server_config=server_config
 )
 ```
 
 ### 3. Host
 
-Now that the model has been tested locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid gateway and send the model, various worker plans and protocols, averaging plan, and various configurations to be stored in PyGrid properly.
+Now that the model has been tested locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid gateway and send the model, various worker plans and protocols, averaging plan, validation plan, and various configurations to be stored in PyGrid properly.
 
 ```py
 import grid as gr
@@ -181,6 +195,7 @@ pygrid.host_federated_training(
   client_protocols={ "secure_agg_protocol": secure_aggregation_protocol },
   client_config=client_config,
   server_averaging_plan=averaging_plan,
+  server_validation_plan=validation_plan,
   server_config=server_config
 )
 ```
@@ -261,7 +276,7 @@ job.on('error', error => {
 
 One initial detail worth noting is that it’s assumed a worker could be running multiple jobs at the same time. A syft worker will need to intelligently observe each job as unique, handling the current training state and other various resources and tasks independent of other jobs. It’s worth noting that mobile phones will not likely have the compute resources necessary for running multiple jobs simultaneously. Because of this, we should allow for multiple concurrent jobs to be executed, but warn the developer at compile time that this is very bad practice for mobile.
 
-Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will first authenticate with PyGrid by optionally passing an `auth_token`. If PyGrid has been configured to have access to verify authentication tokens of third-party oAuth systems, it will use the `auth_token` variable to check for a positive identity of a worker. In the event that no `auth_token` is passed and no oAuth solution exists in PyGrid itself, then this step will be skipped. In the event that no `auth_token` is passed when one is required, or if the `auth_token` that was passed is an invalid token, the worker will be notified by PyGrid that authentication has failed.
+Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will first authenticate with PyGrid by optionally passing an `auth_token`. If PyGrid has a validation plan used to verify authentication tokens of third-party oAuth systems, it will use the `auth_token` variable to check for a positive identity of a worker. In the event that no `auth_token` is passed when one is required, or if the `auth_token` that was passed is an invalid token, the worker will be notified by PyGrid that authentication has failed. In the event that no `auth_token` is passed and no validation plan exists in PyGrid itself, then this step will be skipped.
 
 After this, the worker will perform a network connection test with PyGrid to ensure that it has a viable connection for model training and inference. This will include the worker reporting the following information to PyGrid: ping, average download speed, average upload speed, and the format that the worker likes to receive a plan (list of operations or TorchScript). It’s worth noting that we want to send as little information to PyGrid as possible, only what is strictly required to ensure a reasonably paced training cycle. **Workers will not send information related to wifi connectivity, charging state, or asleep/awakeness of the user. It will be the responsibility of the client-side mobile developer to determine what criteria is appropriate for when model training should take place.**
 
