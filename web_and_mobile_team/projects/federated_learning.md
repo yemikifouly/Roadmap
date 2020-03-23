@@ -152,7 +152,9 @@ server_config = {
   authentication: {  # optional (but highly suggested) authentication
     type: 'jwt',
     method: 'POST',
-    endpoint: 'https://api.example.com/verify-token'
+    endpoint: 'https://api.example.com/verify-token',
+    secret: 'your-256-bit-secret',  # https://jwt.io/#debugger-io
+    is_secret_encoded: true
   }
 }
 
@@ -167,7 +169,7 @@ sy.test_federated_training(
 ```
 
 **A note about authentication:**<br />
-If you don't have some authentication logic, you make yourself open to [Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack). **We highly suggest** that anyone hosting a PyGrid instance for federated learning should also create two endpoints on their user authentication API: one for creating tokens (called by the worker) and one for verifying those tokens (called by PyGrid). The full authentication flow will be described further in subsequent documentation with examples provided for how this could be done.
+If you don't have some authentication logic, you make yourself open to [Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack). **We highly suggest** that anyone hosting a PyGrid instance for federated learning should also create two endpoints on their user authentication API: one for creating tokens (called by the worker) and one for verifying those tokens (called by PyGrid). Before PyGrid verifies the token with the given user authentication API, it must first ensure that the 256-bit secret that signs the token is identical to the one provided. If it is, then the token is sent to the `endpoint` described above to be verified by the user authentication API. The full authentication flow will be described further in subsequent documentation with examples provided for how this could be done.
 
 ### 3. Host
 
