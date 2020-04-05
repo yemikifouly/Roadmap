@@ -189,7 +189,7 @@ Learn more about our projects:
 </details>
 <details><summary><a href="./projects/COVID-SSI/COVID-SSI.md">COVID-19 Open-Source SSI Project</a></summary>
 </details>
-<details><summary><a href="https://github.com/OpenMined/aries-fl">Hyperledger Aries Federated Learning</a></summary>
+<details><summary><a href="https://github.com/OpenMined/aries-fl">A Distributed Trust Framework for Privacy Preserving Machine Learning</a></summary>
 </details>
 <details><summary>ZK-Alexandria</summary>
 <p>
