@@ -23,12 +23,12 @@ In the long term we can also use this to aggregate information from online ident
 
 However, to begin with, we're not going that deep. We want to be able to provide Single-Sign-On (SSO) services to anyone who presents valid credentials for doing so. That means <a href="https://github.com/OpenMined/private-identity-server">Opus</a> hardly needs to store any information about it's users. All it needs to know when vouching for users to third-party organisations is the bare minimum and that can be verified through credentials presnted by the user at the time of requesting that service, not necessarily database.If <a href="https://github.com/OpenMined/private-identity-server">Opus</a> has previously signed off the valid credential, it's as good as it being taken from database controlled by <a href="https://github.com/OpenMined/private-identity-server">Opus</a>. To achieve this integration we are doing two projects things in parallel:
 
-### A - Long Term: Build a completely open-source HL-Aries set up with our own open-source controller.
+### A - Long Term: Build a completely open-source HL-Aries set up with our own open-source controller (ETA: 3 months).
 <img src="images/PlanA.png " alt="Long Term" width="1000"/>
 
 <b>More on Plan A coming soon... </b>
 
-### B - Short Term: Implement a very quick proof-of-concept using StreetCred
+### B - Short Term: Implement a very quick proof-of-concept using StreetCred (ETA: 14 days).
 <img src="images/PlanB.png " alt="Short Term" width="1000"/>
 
 #### Flows
