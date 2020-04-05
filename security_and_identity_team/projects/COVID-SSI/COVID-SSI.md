@@ -2,15 +2,15 @@
 
 ### Objectives
 
-- To provide <b>free-education</b> around SSI to COVID app makers.
+- To provide <b>free-education around SSI </b> to COVID app makers.
 - To provide <b>open-source SSI tools</b> for COVID App makers to use.
 
 ### Free Education
 
-We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack! 
+We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack!
 
 
-### Open Source Tools
+## Open Source Tools
 
 The technical branch of this project is to extend Opus with self-sovereign identity (SSI) functionality like token issuance and verification. Once this is established, we can run Opus SSO services purely on the basis of the proof certificates provided by users,
 In the long term we can also use this to aggregate information from online identities and issue these attributes as verifiable credentials to Opus users. This allows users to participate in other SSI learning applications with information that has previously been verified and attested to by Opus. We can use CL signatures to allow users to prove their data is 'correct' without a remote SSI application ever knowing its value. The remote SSI application can send their model to the user to learn their data. If, as Opus, we also issue noised data credentials then we can train differentially private models on verifiably correct data which never leaves the control of the user.
@@ -23,5 +23,12 @@ However, to begin with, we're not going that deep. We want to be able to provide
 ### A - Long Term: Build a completely open-source HL-Aries set up with our own open-source controller.
 <img src="images/PlanA.png " alt="Long Term" width="1000"/>
 
+<b>More on Plan A coming soon... </b>
+
 ### B - Short Term: Implement a very quick proof-of-concept using StreetCred
 <img src="images/PlanB.png " alt="Short Term" width="1000"/>
+
+#### Flows
+
+- <b><a href="B/create-account.pdf">Flow 1: Create an Account</a>
+- <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
