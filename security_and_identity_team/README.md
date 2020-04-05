@@ -17,6 +17,8 @@ We aim to create free education and tools aimed at onboarding COVID app develope
 - We are working with the writing team to create free education around SSI.
 - We are working on a branch of Opus, which will extend Opus with full SSI credential creation, issuance, verification and revocation functionality. This will ultimately allow Opus to provide SSO services upon the receipt of valid proofs from a user relating to that particular identity; no further information is required.
 - We are working with the Sovrin foundation as a greater community on establishing credential and governance standards for dealing with the swathes of data surrounding COVID. We are building standard tooling for working with the established data types.
+
+<a href="./projects/COVID-SSI/COVID-SSI.md">An overview of this project can be seen here.</a>
 </p>
 </details>
 
