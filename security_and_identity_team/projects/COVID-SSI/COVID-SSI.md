@@ -1,6 +1,18 @@
-# COVID SSI Project
+# COVID Self-Sovereign Identity
 
-Our main focus in this channel is to extend Opus with self-sovereign identity (SSI) functionality like token issuance and verification. Once this is established, we can run Opus SSO services purely on the basis of the proof certificates provided by users,
+### Objectives
+
+- To provide <b>free-education</b> around SSI to COVID app makers.
+- To provide <b>open-source SSI tools</b> for COVID App makers to use.
+
+### Free Education
+
+We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack! 
+
+
+### Open Source Tools
+
+The technical branch of this project is to extend Opus with self-sovereign identity (SSI) functionality like token issuance and verification. Once this is established, we can run Opus SSO services purely on the basis of the proof certificates provided by users,
 In the long term we can also use this to aggregate information from online identities and issue these attributes as verifiable credentials to Opus users. This allows users to participate in other SSI learning applications with information that has previously been verified and attested to by Opus. We can use CL signatures to allow users to prove their data is 'correct' without a remote SSI application ever knowing its value. The remote SSI application can send their model to the user to learn their data. If, as Opus, we also issue noised data credentials then we can train differentially private models on verifiably correct data which never leaves the control of the user.
 
 <img src="images/endgame.png " alt="SSI Open Data Market" width="1000"/>
