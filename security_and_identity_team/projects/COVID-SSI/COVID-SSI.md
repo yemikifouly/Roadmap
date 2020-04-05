@@ -2,12 +2,15 @@
 
 ### Objectives
 
+<figure><figure><iframe src="https://player.vimeo.com/video/305420834?title=0&amp;byline=0" width="640" height="360" allowfullscreen=""></iframe></figure></figure>
+
+
 - To provide <b>free-education around SSI </b> to COVID app makers.
 - To provide <b>open-source SSI tools</b> for COVID App makers to use.
 
-### Free Education
+## Free Education
 
-We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack!
+We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack! We are also working with members of the Sovrin foundation to produce useful learning material.
 
 
 ## Open Source Tools
