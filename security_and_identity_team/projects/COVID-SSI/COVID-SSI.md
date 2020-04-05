@@ -38,4 +38,8 @@ However, to begin with, we're not going that deep. We want to be able to provide
 - <b><a href="B/create-account.pdf">Flow 1: Create an Account</a>
 - <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
 
-## <a href="https://join.slack.com/share/I01165ND7U3/VL60LnfUIXEZ0sOav30G5Am9/enQtMTA0MDE5MjQ0OTk1NS05ZDU2ZjYwYzNkZWRiMmMyNzgxMjFkOGQ5ZGQ5NzU1M2E2ODhhNTFlZjE3ZGQ0ZGM1NmNhZGU1MzIxZmU5NTk2"> Want to Get Started? Join our Slack Channel. </a>
+## Want to Get Started? <a href="https://join.slack.com/share/I01165ND7U3/VL60LnfUIXEZ0sOav30G5Am9/enQtMTA0MDE5MjQ0OTk1NS05ZDU2ZjYwYzNkZWRiMmMyNzgxMjFkOGQ5ZGQ5NzU1M2E2ODhhNTFlZjE3ZGQ0ZGM1NmNhZGU1MzIxZmU5NTk2">Join our Slack. </a>
+
+### Author
+
+Adam J Hall - Twitter: [@AJH4LL](https://twitter.com/AJH4LL) · GitHub: [@H4LL](https://github.com/H4LL)
