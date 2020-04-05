@@ -8,8 +8,6 @@
 
 ##### <a href="https://player.vimeo.com/video/305420834?title=0&amp;byline=0"> What is Self-Sovereign Identity?</a>
 
-<iframe src="https://player.vimeo.com/video/305420834?title=0&amp;byline=0" width="640" height="360" allowfullscreen=""></iframe>
-
 ## Free Education
 
 We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack! We are also working with members of the Sovrin foundation to produce useful learning material.
