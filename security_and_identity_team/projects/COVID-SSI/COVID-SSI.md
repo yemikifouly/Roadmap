@@ -2,11 +2,13 @@
 
 ### Objectives
 
-<figure><figure><iframe src="https://player.vimeo.com/video/305420834?title=0&amp;byline=0" width="640" height="360" allowfullscreen=""></iframe></figure></figure>
-
-
 - To provide <b>free-education around SSI </b> to COVID app makers.
 - To provide <b>open-source SSI tools</b> for COVID App makers to use.
+
+
+### What is Self-Sovereign Identity (SSO)?
+
+<iframe src="https://player.vimeo.com/video/305420834?title=0&amp;byline=0" width="640" height="360" allowfullscreen=""></iframe>
 
 ## Free Education
 
