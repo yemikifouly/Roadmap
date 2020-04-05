@@ -187,7 +187,7 @@ Learn more about our projects:
 
 <details><summary><a href="https://github.com/OpenMined/PySyft/tree/master/examples/tutorials/advanced/split_neural_network">The <b>worlds first open-source</b> implementation of <b>Split Neural Networks</b> </a></summary>
 </details>
-<details><summary><a href="./projects/COVID-SSI.md">COVID-19 Open-Source SSI Project</a></summary>
+<details><summary><a href="./projects/COVID-SSI/COVID-SSI.md">COVID-19 Open-Source SSI Project</a></summary>
 </details>
 <details><summary><a href="https://github.com/OpenMined/aries-fl">Hyperledger Aries Federated Learning</a></summary>
 </details>
