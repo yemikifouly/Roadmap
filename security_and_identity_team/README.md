@@ -6,7 +6,7 @@
 
 
 
-When Privacy-Preserving Machine Learning (PPML) arrives into the mainstream the effects will be felt in every sector of the data industry. We aim to help the AI community brace for impact by exploring the still uncharted area around security appraisal, trust and governance mechanisms relating to PPML.
+When Privacy-Preserving Machine Learning (PPML) arrives into the mainstream, the effects will be felt in every sector of the data industry. We aim to help the AI community brace for impact by exploring the still uncharted area around security appraisal, trust and governance mechanisms relating to PPML.
 
 ## Our roadmap for 2020
 
