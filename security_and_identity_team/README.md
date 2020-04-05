@@ -79,7 +79,7 @@ We aim to organise events around breaking and improving upon our tools. These fa
 
 Traditionally, PySyft has been used to facilitate federated learning. However, we can also leverage the tools included in this framework to implement distributed neural networks. These allow for researchers to process data held remotely and compute predictions in a radically decentralised way. First introduced by MIT in December 2018, SplitNNs represent a brand new architectural mechanic for privacy-preserving ML researchers to play with. We have implemented the first fully open-source version of Split Neural Networks.
 
-While SplitNNs are an interesting architectural development, they are far from secure distributed learning method. The issues here are documented in <b><a href="documentation/tools/DoIA/SplitNN/VulnA.pdf">vulnerability A </a></b> and <b><a href="documentation/tools/DoIA/SplitNN/VulnB.pdf"> vulnerability B</a></b>. We are currently working on methods to counter these vulnerabilities.
+While SplitNNs are an interesting architectural development, they are far from being a secure distributed learning method. The issues here are documented in <b><a href="documentation/tools/DoIA/SplitNN/VulnA.pdf">vulnerability A </a></b> and <b><a href="documentation/tools/DoIA/SplitNN/VulnB.pdf"> vulnerability B</a></b>. We are currently working on methods to counter these vulnerabilities.
 
 </details>
 
