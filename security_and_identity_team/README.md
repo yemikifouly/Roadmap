@@ -75,6 +75,14 @@ We aim to organise events around breaking and improving upon our tools. These fa
 - Performance Optimisation Challenges
 </details>
 
+<details><summary><b>SplitNN Standard Class Type Development and Hardening against Information Leakage</b></summary>
+
+Traditionally, PySyft has been used to facilitate federated learning. However, we can also leverage the tools included in this framework to implement distributed neural networks. These allow for researchers to process data held remotely and compute predictions in a radically decentralised way. First introduced by MIT in December 2018, SplitNNs represent a brand new architectural mechanic for privacy-preserving ML researchers to play with. We have implemented the first fully open-source version of Split Neural Networks.
+
+While SplitNNs are an interesting architectural development, they are far from secure distributed learning method. The issues here are documented in <b><a href="workmap.pdf">vulnerability A </a></b> and <b><a href="workmap.pdf"> vulnerability B</a></b>. We are currently working on methods to counter these vulnerabilities.
+
+</details>
+
 <details><summary><b>PyGrid SSI Integration</b></summary>
 
 We aim to use Hyperledger Aries as a mechanism to facilitate trust in PyGrid. More details to come.
@@ -130,7 +138,7 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
       <a href="https://github.com/tremblerz">
         <img src="https://avatars3.githubusercontent.com/u/10557215?s=460&u=c7601df5ccc1ded707d8d05aa161c1a9fb39c604&v=4" width="170px;" alt="">
         <br /><sub><b>Abhishek Singh</b></sub></a><br />
-        <sub>SplitNN</sub>
+        <sub>Split Neural Networks</sub>
       </a>
     </td>
     <td align="center">
@@ -175,13 +183,13 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
 
 ## Projects
 
-Learn more about our projects!
+Learn more about our projects:
 
-<details><summary><a href="./projects/COVID-SSI.md">COVID-19 Open-Source SSI Components</a></summary>
+<details><summary><a href="https://github.com/OpenMined/PySyft/tree/master/examples/tutorials/advanced/split_neural_network">The <b>worlds first open-source</b> implementation of <b>Split Neural Networks</b> </a></summary>
+</details>
+<details><summary><a href="./projects/COVID-SSI.md">COVID-19 Open-Source SSI Project</a></summary>
 </details>
 <details><summary><a href="https://github.com/OpenMined/aries-fl">Hyperledger Aries Federated Learning</a></summary>
-</details>
-<details><summary><a href="https://github.com/OpenMined/PySyft/tree/master/examples/tutorials/advanced/split_neural_network">Split Neural Network</a></summary>
 </details>
 <details><summary>ZK-Alexandria</summary>
 <p>
@@ -201,6 +209,10 @@ We have weekly meetings that are currently private, [but we take detailed notes 
 If you're already a contributor to PySyft, and if you're interested to to work on crypto related use cases, you should definitely join us!
 
 *[Apply to the crypto team!](https://docs.google.com/forms/d/1T6MJ21V1lb7aEr4ilZOTYQXzxXP6KbpLumZVmTZMSuY/edit)* -->
+
+### Looking for a Project?
+
+<b><a href="workmap.pdf"> Feel free to run with anything on our Workmap!</a></b>
 
 ### Have questions?
 - [**@Adam J Hall** on Slack](https://app.slack.com/client/T6963A864/C69RB18LA/user_profile/UFQ4YUPMJ)
