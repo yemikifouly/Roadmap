@@ -108,7 +108,16 @@ The team leader is [**Théo Ryffel**](https://github.com/LaRiffle). Our team is 
       <a href="https://github.com/Yugandhartripathi">
         <img src="https://avatars2.githubusercontent.com/u/32102845?s=240" width="170px;" alt="">
         <br /><sub><b>Yugandhar Tripathi</b></sub></a><br />
-        <sub>Fixed Precision</sub>
+        <sub>Encrypted ML</sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/sukhadj">
+        <img src="https://avatars0.githubusercontent.com/u/25997368?s=460" width="170px;" alt="">
+        <br /><sub><b>Sukhad Joshi</b></sub></a><br />
+        <sub>Encrypted ML</sub>
       </a>
     </td>
   </tr>

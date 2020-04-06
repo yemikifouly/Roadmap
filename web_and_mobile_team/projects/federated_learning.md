@@ -61,6 +61,7 @@ Below is a proposed sample code block of how this might work:
 ```py
 import syft as sy
 import torch
+import requests
 
 hook = sy.TorchHook(torch)
 hook.local_worker.is_client_worker = False
@@ -147,7 +148,14 @@ server_config = {
   do_not_reuse_workers_until_cycle: 4,
   cycle_length: 8 * 60 * 60,  # 8 hours
   minimum_upload_speed: 2000,  # 2 mbps
-  minimum_download_speed: 4000  # 4 mbps
+  minimum_download_speed: 4000,  # 4 mbps
+  authentication: {  # optional (but highly suggested) authentication
+    type: 'jwt',
+    method: 'POST',
+    endpoint: 'https://api.example.com/verify-token',
+    secret: 'your-256-bit-secret',  # https://jwt.io/#debugger-io
+    is_secret_encoded: true
+  }
 }
 
 sy.test_federated_training(
@@ -159,6 +167,9 @@ sy.test_federated_training(
   server_config=server_config
 )
 ```
+
+**A note about authentication:**<br />
+If you don't have some authentication logic, you make yourself open to [Sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack). **We highly suggest** that anyone hosting a PyGrid instance for federated learning should also create two endpoints on their user authentication API: one for creating tokens (called by the worker) and one for verifying those tokens (called by PyGrid). Before PyGrid verifies the token with the given user authentication API, it must first ensure that the 256-bit secret that signs the token is identical to the one provided. If it is, then the token is sent to the `endpoint` described above to be verified by the user authentication API. The full authentication flow will be described further in subsequent documentation with examples provided for how this could be done.
 
 ### 3. Host
 
@@ -193,75 +204,84 @@ Each worker is a library that may be integrated within the context of a web or m
 import syft from 'syft.js';
 import tf from '@tensorflow/tfjs';
 
-const worker = new syft({
-  url: 'https://localhost:3000',
-  auth_token: MY_AUTH_TOKEN  // An optional authentication token that can validate the identity of a worker
-});
+const run = async () => {
+  // 0. If you're using authentication, and we suggest you do, make a request to your API for a JSON Web Token
+  const jwtTokenRequest = await fetch('https://api.example.com/request-token', {
+    method: 'POST',
+    body: JSON.stringify(user.id) // The user.id may come from some other auth flow done earlier
+  });
+  const token = jwtTokenRequest.json();
 
-// You may set up multiple jobs.
-const job = worker.newJob({
-  model: 'my-federated-model',
-  version: '0.1.0'  // If omitted, PyGrid will assume it's the latest version
-});
+  const worker = new syft({
+    url: 'https://localhost:3000',
+    auth_token: token  // An optional authentication token that can validate the identity of a worker
+  });
 
-// 1. Determine if there is a cycle that the worker can join. If there is a cycle available, it will automatically download the model, plan, and config from PyGrid. If there isn't a cycle available, this code block will automatically retry at the requested timestamp.
+  // You may set up multiple jobs.
+  const job = worker.newJob({
+    model: 'my-federated-model',
+    version: '0.1.0'  // If omitted, PyGrid will assume it's the latest version
+  });
 
-// NOTE FOR MOBILE WORKERS: This is the place to check for a wifi connection, whether or not the device is charging, and whether or not the user is likely asleep.
-job.start();
+  // 1. Determine if there is a cycle that the worker can join. If there is a cycle available, it will automatically download the model, plan, and config from PyGrid. If there isn't a cycle available, this code block will automatically retry at the requested timestamp.
 
-// 2. Once the worker has been approved to participate in a cycle and the model, plan(s), protocol(s), and config have been downloaded...
-job.on('accepted', async ({ model, client_config }) => {
-  const { batch_size, optimizer } = client_config;
+  // NOTE FOR MOBILE WORKERS: This is the place to check for a wifi connection, whether or not the device is charging, and whether or not the user is likely asleep.
+  job.start();
 
-  // Load your data and targets
-  const rawData = [image1, image2, image3, image4, image5, ...];
-  const rawTargets = ['dog', 'cat', 'cat', 'neither', 'dog', ...];
+  // 2. Once the worker has been approved to participate in a cycle and the model, plan(s), protocol(s), and config have been downloaded...
+  job.on('accepted', async ({ model, client_config }) => {
+    const { batch_size, optimizer } = client_config;
 
-  // Batch your data and targets
-  const data = [];
-  const targets = [];
+    // Load your data and targets
+    const rawData = [image1, image2, image3, image4, image5, ...];
+    const rawTargets = ['dog', 'cat', 'cat', 'neither', 'dog', ...];
 
-  while(rawData.length) {
-    data.push(rawData.splice(0, batch_size));
-  }
+    // Batch your data and targets
+    const data = [];
+    const targets = [];
 
-  while(rawTargets.length) {
-    targets.push(rawTargets.splice(0, batch_size));
-  }
+    while(rawData.length) {
+      data.push(rawData.splice(0, batch_size));
+    }
 
-  // 3. Execute the plan by name in batches.
-  for(let i = 0; i < data.length; i++) {
-    await job.plans['training_plan'].execute(model, data[i], target[i], optimizer);
-  }
+    while(rawTargets.length) {
+      targets.push(rawTargets.splice(0, batch_size));
+    }
 
-  // 4. Once the plan has been executed, execute the protocol. This will spawn WebRTC and send this job's model diff to other workers to be securely aggregated.
-  await job.protocols['secure_agg_protocol'].execute();
+    // 3. Execute the plan by name in batches.
+    for(let i = 0; i < data.length; i++) {
+      await job.plans['training_plan'].execute(model, data[i], target[i], optimizer);
+    }
 
-  // 5. Afterwards, the job reports the resulting diff (or share of the securely aggregated diff) back to PyGrid.
-  job.report();
-});
+    // 4. Once the plan has been executed, execute the protocol. This will spawn WebRTC and send this job's model diff to other workers to be securely aggregated.
+    await job.protocols['secure_agg_protocol'].execute();
 
-job.on('rejected', ({ timeout }) => {
-  // Handle the job rejection
-  console.log('We have been rejected by PyGrid to participate in the job.')
+    // 5. Afterwards, the job reports the resulting diff (or share of the securely aggregated diff) back to PyGrid.
+    job.report();
+  });
 
-  const msUntilTry = timeout * 1000;
+  job.on('rejected', ({ timeout }) => {
+    // Handle the job rejection
+    console.log('We have been rejected by PyGrid to participate in the job.')
 
-  // Try to join the job again in "msUntilRetry" milliseconds
-  setTimeout(() => {
-    job.start();
-  }, msUntilRetry)
-});
+    const msUntilTry = timeout * 1000;
 
-job.on('error', error => {
-  // Handle the job error
-  console.log('There was an error with executing one of the plans or protocols', error);
-});
+    // Try to join the job again in "msUntilRetry" milliseconds
+    setTimeout(() => {
+      job.start();
+    }, msUntilRetry)
+  });
+
+  job.on('error', error => {
+    // Handle the job error
+    console.log('There was an error with executing one of the plans or protocols', error);
+  });
+}
 ```
 
 One initial detail worth noting is that it’s assumed a worker could be running multiple jobs at the same time. A syft worker will need to intelligently observe each job as unique, handling the current training state and other various resources and tasks independent of other jobs. It’s worth noting that mobile phones will not likely have the compute resources necessary for running multiple jobs simultaneously. Because of this, we should allow for multiple concurrent jobs to be executed, but warn the developer at compile time that this is very bad practice for mobile.
 
-Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will first authenticate with PyGrid by optionally passing an `auth_token`. If PyGrid has been configured to have access to verify authentication tokens of third-party oAuth systems, it will use the `auth_token` variable to check for a positive identity of a worker. In the event that no `auth_token` is passed and no oAuth solution exists in PyGrid itself, then this step will be skipped. In the event that no `auth_token` is passed when one is required, or if the `auth_token` that was passed is an invalid token, the worker will be notified by PyGrid that authentication has failed.
+Upon first glance, the example above is performing a lot of "magic" behind the scenes. Once calling the `start()` method, the worker will first authenticate with PyGrid by optionally passing an `auth_token`. If PyGrid has JWT authentication configured in the `server_config`, it will use the `auth_token` variable to check for a positive identity of a worker. In the event that no `auth_token` is passed when one is required, or if the `auth_token` that was passed is an invalid token, the worker will be notified by PyGrid that authentication has failed. In the event that no `auth_token` is passed and no authentication configuration exists in PyGrid itself, then this step will be skipped. This token should be relative to the user who is requesting to participate in the federated learning cycle.
 
 After this, the worker will perform a network connection test with PyGrid to ensure that it has a viable connection for model training and inference. This will include the worker reporting the following information to PyGrid: ping, average download speed, average upload speed, and the format that the worker likes to receive a plan (list of operations or TorchScript). It’s worth noting that we want to send as little information to PyGrid as possible, only what is strictly required to ensure a reasonably paced training cycle. **Workers will not send information related to wifi connectivity, charging state, or asleep/awakeness of the user. It will be the responsibility of the client-side mobile developer to determine what criteria is appropriate for when model training should take place.**
 
