@@ -79,7 +79,7 @@ We aim to organise events around breaking and improving upon our tools. These fa
 
 <details><summary><b>SplitNN Standard Class Type Development and Hardening against Information Leakage</b></summary>
 
-Traditionally, PySyft has been used to facilitate federated learning. However, we can also leverage the tools included in this framework to implement distributed neural networks. These allow for researchers to process data held remotely and compute predictions in a radically decentralised way. First introduced by MIT in December 2018, SplitNNs represent a brand new architectural mechanic for privacy-preserving ML researchers to play with. We have implemented the first fully open-source version of Split Neural Networks.
+Traditionally, PySyft has been used to facilitate federated learning. However, we can also leverage the tools included in this framework to implement distributed neural networks. These allow for researchers to process data held remotely and compute predictions in a radically decentralised way. First introduced by MIT in December 2018, SplitNNs represent a brand new architectural mechanic for privacy-preserving ML researchers to play with. We have built the worlds first fully open-source implementation of Split Neural Networks.
 
 While SplitNNs are an interesting architectural development, they are far from being a secure distributed learning method. The issues here are documented in <b><a href="documentation/tools/DoIA/SplitNN/VulnA.pdf">vulnerability A </a></b> and <b><a href="documentation/tools/DoIA/SplitNN/VulnB.pdf"> vulnerability B</a></b>. We are currently working on methods to counter these vulnerabilities.
 
@@ -187,7 +187,7 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
 
 Learn more about our projects:
 
-<details><summary><a href="https://github.com/OpenMined/PySyft/tree/master/examples/tutorials/advanced/split_neural_network">The <b>worlds first open-source</b> implementation of <b>Split Neural Networks</b> </a></summary>
+<details><summary><a href="https://github.com/OpenMined/PySyft/tree/master/examples/tutorials/advanced/split_neural_network">The <b>First open-source</b> implementation of <b>Split Neural Networks</b> </a></summary>
 </details>
 <details><summary><a href="./projects/COVID-SSI/COVID-SSI.md">COVID-19 Open-Source SSI Project</a></summary>
 </details>
