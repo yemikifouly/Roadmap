@@ -91,7 +91,7 @@ We aim to use Hyperledger Aries as a mechanism to facilitate trust in PyGrid. Mo
 
 </details>
 
-<details><summary><b>Zero-Knowledge Data Discovery and Transport</b></summary>
+<details><summary><b>Zero-Knowledge Data Discovery and Transport (ZK-Alexandria)</b></summary>
 
 ##### <u>Get in touch if you'd like to know more about this project!</u>
 
@@ -180,6 +180,15 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
         <sub>Privacy-Preserving ML</sub>
       </a>
     </td>
+  </tr>  
+  <tr>
+  <td align="center">
+    <a href="https://github.com/40415056">
+      <img src="https://avatars3.githubusercontent.com/u/47462996?s=460&u=e2507ee0bbcaaf0a75fdf5792856607756c69edc&v=4" width="170px;" alt="">
+      <br /><sub><b>Afzaal Hussain</b></sub></a><br />
+      <sub>Information Security Governance</sub>
+    </a>
+  </td>
   </tr>
 </table>
 
