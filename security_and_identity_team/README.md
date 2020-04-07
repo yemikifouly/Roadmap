@@ -23,7 +23,7 @@ We aim to create free education and tools aimed at onboarding COVID app develope
 </details>
 
 <details><summary><b>Recommendation of Standard Governance Frameworks for PPML</b></summary><p>
-Governance models are important because they bridge the gap between what is possible and what is legislatively justifiable. Businesses need to know why PPML is important, why it's going to save them resources in data security management and, most importantly, how they can justify it to their auditor. To this end we are working on recommendations and documenation around the following:<br><br>
+Governance models are important because they bridge the gap between what is possible and what is legislatively justifiable. Businesses need to know why PPML is important, why it's going to save them resources in information security management and, most importantly, how they can justify it to their auditor. To this end we are working on recommendations and documenation around the following:<br><br>
 
 - Recommendation of incident response standard guidelines concerning PPML security incidents<br>
 - Exploring appropriate design ethics for privacy-preserving systems<br>
@@ -121,21 +121,28 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/H4LL">
+      <a href="https://github.com/LaRiffle">
+        <img src="https://avatars3.githubusercontent.com/u/12446521?s=240" width="170px;" alt="Théo Ryffel">
+        <br /><sub><b>Théo Ryffel</b></sub></a><br />
+        <sub>PPML + Cryptography</sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/wip-abramson">
         <img src="https://avatars1.githubusercontent.com/u/18055112?s=460&u=8542a349dfdd82110c7c66f8168f6236337b646a&v=4" width="170px;" alt="">
         <br /><sub><b>Will Abramson</b></sub></a><br />
         <sub>Self-Sovereign Identity</sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/pavlos-p">
-        <img src="https://avatars0.githubusercontent.com/u/44439128?s=460&u=eb02441a2d6cfd14d47d7afb13847a60c6e531ba&v=4" width="170px;" alt="">
-        <br /><sub><b>Pavlos Papadopoulos</b></sub></a><br />
-        <sub>PPML + Security Audit</sub>
-      </a>
-    </td>
   </tr>
   <tr>
+  <td align="center">
+    <a href="https://github.com/pavlos-p">
+      <img src="https://avatars0.githubusercontent.com/u/44439128?s=460&u=eb02441a2d6cfd14d47d7afb13847a60c6e531ba&v=4" width="170px;" alt="">
+      <br /><sub><b>Pavlos Papadopoulos</b></sub></a><br />
+      <sub>PPML + Security Audit</sub>
+    </a>
+  </td>
     <td align="center">
       <a href="https://github.com/tremblerz">
         <img src="https://avatars3.githubusercontent.com/u/10557215?s=460&u=c7601df5ccc1ded707d8d05aa161c1a9fb39c604&v=4" width="170px;" alt="">
@@ -150,15 +157,15 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
         <sub>Privacy-Preserving ML</sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/JulianSprung">
-        <img src="https://avatars3.githubusercontent.com/u/36044639?s=460&u=e2cfedf5c7282096990b214d8f021d5f56145245&v=4" width="170px;" alt="">
-        <br /><sub><b>Julian Sprung</b></sub></a><br />
-        <sub>Security + Performance Challenges</sub>
-      </a>
-    </td>
   </tr>
-  <tr>
+  <tr>    
+  <td align="center">
+        <a href="https://github.com/JulianSprung">
+          <img src="https://avatars3.githubusercontent.com/u/36044639?s=460&u=e2cfedf5c7282096990b214d8f021d5f56145245&v=4" width="170px;" alt="">
+          <br /><sub><b>Julian Sprung</b></sub></a><br />
+          <sub>Security + Performance Challenges</sub>
+        </a>
+      </td>
   <td align="center">
     <a href="https://github.com/youben11">
       <img src="https://avatars0.githubusercontent.com/u/21220087?s=240" width="170px;" alt="">
@@ -173,15 +180,15 @@ The team leader is [**Adam James Hall**](https://github.com/H4LL). Our team is c
         <sub>Privacy-Preserving ML</sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/ttitcombe">
-        <img src="https://avatars0.githubusercontent.com/u/32938439?s=460&u=0087d99ceab10ba55b055a8ce3f722dac6829b24&v=4" width="170px;" alt="">
-        <br /><sub><b>Tom</b></sub></a><br />
-        <sub>Privacy-Preserving ML</sub>
-      </a>
-    </td>
   </tr>  
   <tr>
+  <td align="center">
+    <a href="https://github.com/ttitcombe">
+      <img src="https://avatars0.githubusercontent.com/u/32938439?s=460&u=0087d99ceab10ba55b055a8ce3f722dac6829b24&v=4" width="170px;" alt="">
+      <br /><sub><b>Tom</b></sub></a><br />
+      <sub>Privacy-Preserving ML</sub>
+    </a>
+  </td>
   <td align="center">
     <a href="https://github.com/40415056">
       <img src="https://avatars3.githubusercontent.com/u/47462996?s=460&u=e2507ee0bbcaaf0a75fdf5792856607756c69edc&v=4" width="170px;" alt="">
