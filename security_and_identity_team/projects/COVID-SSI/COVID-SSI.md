@@ -23,15 +23,24 @@ In the long term we can also use this to aggregate information from online ident
 
 However, to begin with, we're not going that deep. We want to be able to provide Single-Sign-On (SSO) services to anyone who presents valid credentials for doing so. That means <a href="https://github.com/OpenMined/private-identity-server">Opus</a> hardly needs to store any information about it's users. All it needs to know when vouching for users to third-party organisations is the bare minimum and that can be verified through credentials presnted by the user at the time of requesting that service, not necessarily database.If <a href="https://github.com/OpenMined/private-identity-server">Opus</a> has previously signed off the valid credential, it's as good as it being taken from database controlled by <a href="https://github.com/OpenMined/private-identity-server">Opus</a>. To achieve this integration we are doing two projects things in parallel:
 
-### A - Long Term: Build a completely open-source HL-Aries set up with our own open-source controller (ETA: 3 months).
+### A - SSI Open-Source (ETA: 3 months).
 <img src="images/PlanA.png " alt="Long Term" width="1000"/>
 
-<b>More on Plan A coming soon... </b>
+<b>Development Lead: [Pavlos Papadopolous](https://github.com/pavlos-p)</b>
 
-### B - Short Term: Implement a very quick proof-of-concept using StreetCred (ETA: 14 days).
+In the long-run, we want a completely open-source solution for SSI compatibility in order to catalyse adoption. However, creating controller logic in Opus for a HL-Aries agent is a non-trivial task. There is not due to incompletion of the backing technology. There is little surrounding documentation and a massive skill gap in the privacy community. Plan A is to implement generic, open-source Agent controller logic to be used in Opus for an application performing abitrary SSI flows.  
+
+### B - SSI StreetCred (ETA: 14 days).
 <img src="images/PlanB.png " alt="Short Term" width="1000"/>
 
-#### Flows
+<b>Development Lead: [Tom Farrand](https://github.com/FarrandTom)</b><br>
+<b>Project Repo: <a href="https://github.com/OpenMined/private-identity-server/tree/ssi-streetcred">SSI StreetCred</a></b>
+
+
+We need a solution as soon as possible. To this end we will develop a solution using existing <a href="https://developer.streetcred/">StreetCred</a> software. <a href="https://developer.streetcred/">StreetCred</a> provide a well documented closed-source controller for Aries. This will allow us to create a proof of concept extremely quickly. If this is your first project with SSI, this project is good because you can read all of the <a href="https://docs.streetcred.id/docs/getting-started">free education</a> already created around SSI by the <a href="https://developer.streetcred/">StreetCred</a> team.
+
+
+<b>Flow Diagrams:</b>
 
 - <b><a href="B/create-account.pdf">Flow 1: Create an Account</a>
 - <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
