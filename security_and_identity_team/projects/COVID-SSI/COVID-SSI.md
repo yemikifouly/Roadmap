@@ -69,6 +69,15 @@ We need a solution as soon as possible. To this end we will develop a solution u
 - <b><a href="B/create-account.pdf">Flow 1: Create an Account</a>
 - <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
 
+
+### B - SSI Governance (ETA: Ongoing)
+
+<b>Project Lead: <a href="https://github.com/wip-abramson">Will Abramson</a></b><br>
+<b>Working Document: <a href="https://docs.google.com/document/d/1FBnIWrHpbuGFwA1eZybPz-J1QNA9KKpGAC5sl3-BEZs/edit?usp=sharing">Governance Authority Requirements
+</a></b>
+
+Researching and developing digital tools that enable the flexible managment and dissemination of governance rules/policies in a format that can be interpreted and enforced by ssi agents.
+
 ## Want to Get Started? <a href="https://join.slack.com/share/I01165ND7U3/VL60LnfUIXEZ0sOav30G5Am9/enQtMTA0MDE5MjQ0OTk1NS05ZDU2ZjYwYzNkZWRiMmMyNzgxMjFkOGQ5ZGQ5NzU1M2E2ODhhNTFlZjE3ZGQ0ZGM1NmNhZGU1MzIxZmU5NTk2">Join our Slack. </a>
 
 ### Author
