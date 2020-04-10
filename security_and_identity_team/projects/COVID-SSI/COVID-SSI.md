@@ -70,13 +70,19 @@ We need a solution as soon as possible. To this end we will develop a solution u
 - <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
 
 
-### B - SSI Governance (ETA: Ongoing)
+### C - SSI Governance (ETA: Ongoing)
 
 <b>Project Lead: <a href="https://github.com/wip-abramson">Will Abramson</a></b><br>
 <b>Working Document: <a href="https://docs.google.com/document/d/1FBnIWrHpbuGFwA1eZybPz-J1QNA9KKpGAC5sl3-BEZs/edit?usp=sharing">Governance Authority Requirements
 </a></b>
 
-Researching and developing digital tools that enable the flexible managment and dissemination of governance rules/policies in a format that can be interpreted and enforced by ssi agents.
+This is a suggestion for a workstream as part of the Covid19Credentials initiative to develop an open source tool for a Governance Authority within a domain specific governance framework.
+
+This tool should enable the easy initialisation of a credential ecosystem and support machinable rules defined as part of the Governance Framework which can be easily and securely disseminated to participants within the system without compromising privacy.
+
+The question that drives this proposal is:
+How might we develop tools to enable machinable rules that govern a credential ecosystem such that Verifiers and Holders can have high confidence in an issuer's authority?
+
 
 ## Want to Get Started? <a href="https://join.slack.com/share/I01165ND7U3/VL60LnfUIXEZ0sOav30G5Am9/enQtMTA0MDE5MjQ0OTk1NS05ZDU2ZjYwYzNkZWRiMmMyNzgxMjFkOGQ5ZGQ5NzU1M2E2ODhhNTFlZjE3ZGQ0ZGM1NmNhZGU1MzIxZmU5NTk2">Join our Slack. </a>
 
