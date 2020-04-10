@@ -5,12 +5,31 @@
 - To provide <b>free-education around SSI </b> to COVID app makers.
 - To provide <b>open-source SSI tools</b> for COVID App makers to use.
 
-
-##### <a href="https://player.vimeo.com/video/305420834?title=0&amp;byline=0"> What is Self-Sovereign Identity?</a>
-
 ## Free Education
 
+
 We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack! We are also working with members of the Sovrin foundation to produce useful learning material.
+
+
+
+
+<details><summary><b>SSI Projects Around COVID-19</b></summary>
+
+<b>COVI-ID</b><br>
+<a href="https://medium.com/coviid/covi-id-privacy-preserving-covid-19-status-verification-c11d59ec92f6">The COVI-ID SSI Project</a>
+Covi-ID is a South African led consortium building a similar proof of health application as SafePass using SSI. This supports a flow where a single scan of a QrCode can act as proof of status.
+</details>
+
+<details><summary><b>SSI Tools</b></summary>
+<b>StreetCred</b>
+
+StreetCred is an SSI as a service organisation aimed at lowering the barrier of entry to SSI. An Introduction to the StreetCred tools and SSI more generally <a href="https://docs.streetcred.id/docs/getting-started"> can be found here.</a>
+</details>
+
+<details><summary><b>SSI Concepts</b></summary>
+- <a href="https://player.vimeo.com/video/305420834?title=0&amp;byline=0"> What is SSI?</a> <br>
+- <a href="https://misterwip.uk/cl-signatures">CL Signatures</a>
+</details>
 
 
 ## Open Source Tools
