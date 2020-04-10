@@ -34,7 +34,7 @@ StreetCred is an SSI as a service organisation aimed at lowering the barrier of 
 <details><summary><b>The Sovrin Foundation</b></summary>
 </details>
 
-#### Do you have any specific questions you'd like answered?<br> <a href="https://docs.google.com/document/d/1_A9_M9clVvFSs10UTitvEVGaBP4K4efUiOj7ls7nFXI/edit?usp=sharing"> Write them here.</a>
+### Do you have any specific questions you'd like answered?<br> <a href="https://docs.google.com/document/d/1_A9_M9clVvFSs10UTitvEVGaBP4K4efUiOj7ls7nFXI/edit?usp=sharing"> Write them here.</a>
 
 
 ## Open Source Tools
