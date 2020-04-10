@@ -31,6 +31,9 @@ StreetCred is an SSI as a service organisation aimed at lowering the barrier of 
 - <a href="https://misterwip.uk/cl-signatures">CL Signatures</a>
 </details>
 
+<details><summary><b>The Sovrin Foundation</b></summary>
+</details>
+
 
 ## Open Source Tools
 
