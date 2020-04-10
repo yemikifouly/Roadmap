@@ -5,12 +5,36 @@
 - To provide <b>free-education around SSI </b> to COVID app makers.
 - To provide <b>open-source SSI tools</b> for COVID App makers to use.
 
-
-##### <a href="https://player.vimeo.com/video/305420834?title=0&amp;byline=0"> What is Self-Sovereign Identity?</a>
-
 ## Free Education
 
+
 We will be working with the writing team at OpenMined to create blog posts aimed at lowering the barrier of entry into SSI for developers. If you'd like to write a blogpost, reach out on the Slack! We are also working with members of the Sovrin foundation to produce useful learning material.
+
+
+
+
+<details><summary><b>SSI Projects Around COVID-19</b></summary>
+
+<b>COVI-ID</b><br>
+<a href="https://medium.com/coviid/covi-id-privacy-preserving-covid-19-status-verification-c11d59ec92f6">The COVI-ID SSI Project</a>
+Covi-ID is a South African led consortium building a similar proof of health application as SafePass using SSI. This supports a flow where a single scan of a QrCode can act as proof of status.
+</details>
+
+<details><summary><b>SSI Tools</b></summary>
+<b>StreetCred</b>
+
+StreetCred is an SSI as a service organisation aimed at lowering the barrier of entry to SSI. An Introduction to the StreetCred tools and SSI more generally <a href="https://docs.streetcred.id/docs/getting-started"> can be found here.</a>
+</details>
+
+<details><summary><b>SSI Concepts</b></summary>
+- <a href="https://player.vimeo.com/video/305420834?title=0&amp;byline=0"> What is SSI?</a> <br>
+- <a href="https://misterwip.uk/cl-signatures">CL Signatures</a>
+</details>
+
+<details><summary><b>The Sovrin Foundation</b></summary>
+</details>
+
+### Do you have any specific questions you'd like answered?<br> <a href="https://docs.google.com/document/d/1_A9_M9clVvFSs10UTitvEVGaBP4K4efUiOj7ls7nFXI/edit?usp=sharing"> Write them here.</a>
 
 
 ## Open Source Tools
@@ -44,6 +68,15 @@ We need a solution as soon as possible. To this end we will develop a solution u
 
 - <b><a href="B/create-account.pdf">Flow 1: Create an Account</a>
 - <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
+
+
+### B - SSI Governance (ETA: Ongoing)
+
+<b>Project Lead: <a href="https://github.com/wip-abramson">Will Abramson</a></b><br>
+<b>Working Document: <a href="https://docs.google.com/document/d/1FBnIWrHpbuGFwA1eZybPz-J1QNA9KKpGAC5sl3-BEZs/edit?usp=sharing">Governance Authority Requirements
+</a></b>
+
+Researching and developing digital tools that enable the flexible managment and dissemination of governance rules/policies in a format that can be interpreted and enforced by ssi agents.
 
 ## Want to Get Started? <a href="https://join.slack.com/share/I01165ND7U3/VL60LnfUIXEZ0sOav30G5Am9/enQtMTA0MDE5MjQ0OTk1NS05ZDU2ZjYwYzNkZWRiMmMyNzgxMjFkOGQ5ZGQ5NzU1M2E2ODhhNTFlZjE3ZGQ0ZGM1NmNhZGU1MzIxZmU5NTk2">Join our Slack. </a>
 
