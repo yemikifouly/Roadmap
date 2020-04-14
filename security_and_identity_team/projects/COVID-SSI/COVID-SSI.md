@@ -68,6 +68,8 @@ We need a solution as soon as possible. To this end we will develop a solution u
 
 - <b><a href="B/create-account.pdf">Flow 1: Create an Account</a>
 - <a href="B/login-ssi.pdf">Flow 2: Log in to Account for SSO Services</a></b>
+- <b><a href="B/gh-create-vc.pdf">Flow 3: Create VC for Github SSO Login</a>
+- <a href="B/gh-login-ssi.pdf">Flow 4: Log in to Github using VC via Opus SSO Services</a></b>
 
 
 ### C - SSI Governance (ETA: Ongoing)
