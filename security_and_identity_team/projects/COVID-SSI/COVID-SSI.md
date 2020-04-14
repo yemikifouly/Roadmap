@@ -17,7 +17,7 @@ We will be working with the writing team at OpenMined to create blog posts aimed
 
 <b>COVI-ID</b><br>
 <a href="https://medium.com/coviid/covi-id-privacy-preserving-covid-19-status-verification-c11d59ec92f6">The COVI-ID SSI Project</a>
-Covi-ID is a South African led consortium building a similar proof of health application as SafePass using SSI. This supports a flow where a single scan of a QrCode can act as proof of status.
+Covi-ID is a South African led consortium building a proof of health application using SSI. This supports a flow where a single scan of a QrCode can act as proof of status.
 </details>
 
 <details><summary><b>SSI Tools</b></summary>
