@@ -22,7 +22,7 @@ We currently support standard protocols in MPC but would like to extend support 
 We're also working on integrating the CrypTen library for MPC which is developed by Facebook. This is a top priority project of the team, and will allow users to benefit from the massive optimizations of this library which works only with PyTorch.
 </p>
 </details>
-<details><summary><b>Integration of new crypto protocols (FSS, etc)</b></summary>
+<details><summary><b>Integration of new crypto protocols (FSS, Functional Encryption, etc)</b></summary>
 <p>
 We're still integrating new crypto protocols natively in PySyft. This allows us to use them in a wider set of contexts, especially on mobiles and across all kind of computation frameworks. Among the next protocols we can cite Function Secret Sharing which is used in MPC to reduce the number of interactions compared to previous state-of-the-art MPC protocols.
 </p>
