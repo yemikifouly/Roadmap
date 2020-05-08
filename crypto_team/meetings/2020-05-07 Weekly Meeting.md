@@ -24,7 +24,7 @@ AYOUB
 - TenSEAL: bogdan cebere merged porting the cpp api to python -> will be in the next release
 
 RAVIKANT
-- Working on the decrypted part for CKKS: I have completed the main code but still some problems to fix 
+- Working on the decrypted part for FV homomorphic Enc.: I have completed the main code but still some problems to fix 
 - Working also on kotlin-syft
 
 BILAL
