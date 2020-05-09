@@ -88,7 +88,7 @@ Demo on remote blind tokenization with SyferText.
 Demo on sentiment analysis with SyferText on multiple private datasets. *(Cancelled due to COVID-19)*
 
 
-- **(May 13th)**: [OpenMined AMA](https://www.youtube.com/channel/UCzoUqDE_OzYo6lGXtsEbOxQ).
+- **(May 13th)**: [OpenMined AMA](https://www.youtube.com/channel/UCzoUqDE_OzYo6lGXtsEbOxQ). *(Cancelled due to COVID-19)*
 
 
 
