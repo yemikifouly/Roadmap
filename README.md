@@ -138,4 +138,8 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
     - Tutorial/Documentation - how to scale up compute for training ML models
     - Tutorial/Documentation - how to do remote debugging using PySyft
 
-#
+# Project Layout
+
+For those interested in a visual representation of all of OpenMined's various projects and how they relate to one another, please view the document below:
+
+<div style="width: 960px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:960px; height:720px" src="https://app.lucidchart.com/documents/embeddedchart/4171bac3-56e3-490a-85cd-cc7c120151c9" id="Tjg03NjR7Jmo"></iframe></div>
