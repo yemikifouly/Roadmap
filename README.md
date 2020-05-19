@@ -140,6 +140,4 @@ Secondarily, we are intentionally choosing use-cases which have both a social an
 
 # Project Layout
 
-For those interested in a visual representation of all of OpenMined's various projects and how they relate to one another, please view the document below:
-
-<div style="width: 960px; height: 720px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:960px; height:720px" src="https://app.lucidchart.com/documents/embeddedchart/4171bac3-56e3-490a-85cd-cc7c120151c9" id="Tjg03NjR7Jmo"></iframe></div>
+For those interested in a visual representation of all of OpenMined's various projects and how they relate to one another, [please view the following document](https://app.lucidchart.com/invitations/accept/1158eee8-a446-4d30-906b-60abb6d993fc).
