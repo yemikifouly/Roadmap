@@ -1,6 +1,6 @@
 ## Introduction
 
-_Last modified: April 24th, 2020_
+_Last modified: May 29th, 2020_
 
 Dynamic federated learning is one of the primary use-cases of the OpenMined ecosystem. By allowing data scientists to search for and ETL remote tensors, so they can train models on data they literally "cannot see".
 
