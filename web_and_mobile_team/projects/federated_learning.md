@@ -173,7 +173,7 @@ If you don't have some authentication logic, you make yourself open to [Sybil at
 
 ### 3. Host
 
-Now that the model has been tested locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid gateway and send the model, various worker plans and protocols, averaging plan, and various configurations to be stored in PyGrid properly.
+Now that the model has been tested locally, it’s time to host the model on PyGrid. This will allow for training cycles to begin on end-user devices. The developer needs to connect to an existing PyGrid Node and send the model, various worker plans and protocols, averaging plan, and various configurations to be stored in PyGrid properly.
 
 ```py
 import grid as gr

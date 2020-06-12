@@ -20,9 +20,9 @@ These are currently ordered in terms of the perceived priority based on the requ
 
 Another requirement of cloud deployment will be the ability to provision, scale, and monitor resources. This would include the following base functionality:
 
-- **Horizontal scaling:** The ability to add or remove PyGrid Nodes from a PyGrid Gateway
-- **Vertical scaling:** The ability to increase or decrease compute resources for one or more PyGrid Nodes
-- **Workload monitoring:** The ability to visually inspect which PyGrid Nodes are being utilized, their current task, and their resource utilization
+- **Horizontal scaling:** The ability to add or remove PyGrid Workers to or from a PyGrid Node
+- **Vertical scaling:** The ability to increase or decrease compute resources for one or more PyGrid Workers
+- **Workload monitoring:** The ability to visually inspect which PyGrid Workers are being utilized, their current task, and their resource utilization
 - **Update software:** The ability to upgrade a given PyGrid instance to the latest release, ensuring that new features are automatically added and vulnerabilities are regularly patched
 
 These functionalities will be possible via a rich integration into the [PyGrid Admin UI](common/pygrid_admin.md). While it will also be possible to perform these same functions in a command line interface, it's generally easier to do them visually and within context of the current resource workload.
