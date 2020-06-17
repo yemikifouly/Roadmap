@@ -4,7 +4,7 @@
 
 ## The Learning Path
 
-![LT Learning Path](https://www.github.com/yemikifouly/Roadmap/learning_team/images/learning_path.png)
+![LT Learning Path](https://github.com/yemikifouly/Roadmap/blob/master/learning_team/images/learning_path.png)
 
 ## Our Team
 
