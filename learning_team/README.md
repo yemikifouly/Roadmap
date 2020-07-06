@@ -39,6 +39,9 @@ The Learning Team has 3 internal teams: the **Administration Team**, the **Engag
 * Plan and build new bootcamps.
 * Plan technical events (AMAs, guest speakers, hackathons…) and collaborate with the Operations Team to execute them.
 
+<p text-align=center>
+    <img src="https://github.com/yemikifouly/Roadmap/blob/master/learning_team/images/join_now_two.jpg" alt="centered image" width="200"/>
+</p>
 
 ***When applying to join the Learning Team, you apply for a specific team. Depending on your application and the opening in each team you will be offered a specific role within the team or teams you asked to be considered for.***
 
